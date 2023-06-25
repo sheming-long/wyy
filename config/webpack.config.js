@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const path = require('path');
-// const glob = require('glob');
 module.exports = {
   entry: './src/index.js',
   devtool: 'source-map',
@@ -12,6 +11,12 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.template$/,
+        use: {
+          loader: path.resolve(__dirname, './loaders/template.js'),
+        },
+      },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
@@ -34,13 +39,12 @@ module.exports = {
   mode: process.env.NODE_ENV,
   resolve: {
     alias: {
-       vue:"vue/dist/vue.esm.js",
+      vue: 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, '../src'),
     },
   },
   externals: {
-    jquery: 'jQuery',
-    lodash: '_',
+    vue: 'Vue',
   },
   devServer: {
     open: true,
@@ -66,9 +70,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       cdn: {
-        script: [
-          "https://cdn.jsdelivr.net/npm/vue@2",
-        ],
+        script: ['https://cdn.jsdelivr.net/npm/vue@2'],
         style: [],
       },
     }),
