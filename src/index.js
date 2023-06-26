@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import './index.css';
 import template_index from './index.template';
+import  './01.json'
 const vm = new Vue({
   // 挂载节点
   el: '#app',
