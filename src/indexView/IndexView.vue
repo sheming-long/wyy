@@ -80,7 +80,7 @@
           <div class="flex-nowrap" style="display: flex;
     flex-direction: column;
     justify-content: space-around;">
-            <p class="text-[#767a93] text-[3vw]">6月28日</p>
+            <p class="text-[#767a93] text-[3vw]">{{ currentMonth }}月{{ currentDay }}日</p>
             <p class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[70vw] leading-[5vw] font-[700]">{{item.title}}</p>
           </div>
           <img :src="item.imgUrl" alt="" class="w-[16vw] h-[16vw] rounded-[2vw]"/>
@@ -152,6 +152,8 @@ export default {
   },
   data() {
     return {
+       currentMonth: '',
+      currentDay: '',
       introduce: ['超71%人播放', '沉浸声', 'HI-Res'],
       rili: [],
       num: 12,
@@ -175,6 +177,7 @@ export default {
     };
   },
   methods: {
+    
     fetchPlaylists(cat) {
       axios
         .get(
@@ -199,6 +202,9 @@ export default {
   },
 
   mounted() {
+    const date = new Date();
+    this.currentMonth = date.getMonth() + 1; // 月份从 0 开始，所以需要加1
+    this.currentDay = date.getDate();
     this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 3,
       spaceBetween: 30,
