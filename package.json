@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\"",
     "dev": "cross-env NODE_ENV=development npx webpack-dev-server --config=./config/webpack.config.js",
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production npx webpack",
@@ -12,11 +13,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@better-scroll/scroll-bar": "^2.5.1",
     "@iconify/vue2": "^2.1.0",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.8",
     "eslint-import-resolver-webpack": "^0.13.2",
     "jquery": "^3.7.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "vant": "^2.12.54",
+    "vue-awesome-swiper": "^4.1.1"
   },
   "config": {
     "commitizen": {
