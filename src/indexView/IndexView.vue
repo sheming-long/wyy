@@ -282,4 +282,14 @@ li {
   padding: 0 10px;
   margin: 0 10px;
 }
+.van-swipe {
+    border-radius: 4vw;
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    cursor: grab;
+    -webkit-user-select: none;
+    user-select: none;
+}
 </style>
