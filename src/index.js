@@ -1,9 +1,12 @@
 import Vue from 'vue';
 import './index.css';
 import { Icon } from '@iconify/vue2';
-import indexView from './IndexView.vue';
+import indexView from './indexView/IndexView.vue';
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import BScroll from '@better-scroll/core';
+import ScrollBar from '@better-scroll/scroll-bar';
+
 Vue.use(Vant);
 
 
