@@ -1,9 +1,7 @@
-<template>
-  <div class="w-[100vw] pl-[2.5vw] pr-[2.5vw] mt-[-5vw] " style="background: rgb(245,117,255);
-background: linear-gradient(45deg, rgba(245,117,255,1) 0%, rgba(102,229,255,1) 100%);">
-    <header class="fixed h-[9vw] w-[100vw] top-0 z-30   ml-[-2.5vw]" style="background: rgb(245,117,255);
-background: linear-gradient(45deg, rgba(245,117,255,1) 0%, rgba(102,229,255,1) 100%);">
-      <button @click="drawerVisible = !drawerVisible"  class="w-[9vw] h-[9vw] float-left"> <icon icon="prime:bars" class="w-[9vw] h-[9vw] float-left" /></button>
+<template >
+  <div class="w-[100vw] pl-[2.5vw] pr-[2.5vw]  overflow-hidden pb-[5vw]"  @click="updateOverflow" >
+    <header class=" h-[9vw] w-[100vw] top-0 z-30   ml-[-2.5vw]" >
+      <button @click="drawerVisible = !drawerVisible,updateOverflow"  class="w-[9vw] h-[9vw] float-left" > <icon icon="prime:bars" class="w-[9vw] h-[9vw] float-left"  /></button>
     <!-- <Drawer :visible="drawerVisible" @自定义事件="(e) => (drawerVisible = e)"> -->
    
       <input
@@ -16,9 +14,9 @@ background: linear-gradient(45deg, rgba(245,117,255,1) 0%, rgba(102,229,255,1) 1
         class="w-[9vw] h-[9vw] float-right inline-block"
       />
     </header>
-       <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class="overflow-y: auto;">
+        <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class="overflow-y: auto;">
           <div class="h-[100%]">
-               <header class="w-[80vw] h-[14vw] pt-[1vw] flex">
+               <header class="w-[80vw] h-[5vw] pt-[1vw] flex " style="margin-bottom: 12vw;">
                   <img src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1" alt="" class="w-[12vw] h-[12vw] rounded-[50%] bg-cover">
                   <p class="text-[6vw] font-[700] ml-[3vw] w-[15vw]" style="line-height:14vw " >麹义</p>
                   <icon icon="ant-design:right-outlined" class="w-[8vw] h-[8vw] inline-block mt-[3vw] ml-[2vw]"/>
@@ -38,16 +36,76 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
                   <p class="  text-[3vw] text-[#9a958d] ml-[5vw] mt-[3vw]">礼品卡&nbsp;&nbsp;|&nbsp;&nbsp;毕业快乐</p>
                </div>
 
-               <div class="text-[3vw] text-[#9a958d]  ml-[5vw] mt-[3vw] h-[11vw] w-[60vw]" style="border-top: 1px solid #aa9793; line-height:11vw ">
+               <div class="text-[3vw] text-[#9a958d]  ml-[5vw] mt-[3vw] h-[11vw] w-[60vw] relative " style="border-top: 1px solid #aa9793; line-height:11vw ">
                   受邀专享,黑胶vip低至0.27元/天!
+
+                  <div class="h-[8vw] w-[8vw] bg-[#d94e0e] rounded-[1vw] text-[2vw] text-[#fff8dc] font-[700] " style="line-height:0vw ;display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    position: absolute;
+    left: 52vw;
+    top: 1vw;">
+                   <span>受邀</span> 
+                   <span>专享</span> 
+                  </div>
                </div>
+               
                </div>
 
-               
-          </div>
-    </Drawer>
+    <div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]" style="border-radius: 4vw;">
+					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw]" v-for="(item) in text.one"
+						:key="item.id2">
+						<p class="flex items-center w-[50vw] font-[500]">
+							<Icon :icon="item[0]" class=" mr-3 w-[7vw] h-[7vw] mt-[-1vw]" />
+							{{ item[1] }}
+						</p>
+						<Icon icon="ep:arrow-right" class=" text-[#c7c7c7] text-[6vw] mt-[-1]"/>
+					</div>
+				</div>
+        <div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]" style="border-radius: 4vw;">
+          <p style="border-bottom: 1px solid #ccc; line-height:14vw " class="  h-[14vw] text-[3.5vw] text-[#c7c7c7]">音乐服务</p>
+					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw]" v-for="(item) in text.two"
+						:key="item.id2">
+						<p class="flex items-center w-[50vw] font-[500]">
+							<Icon :icon="item[0]" class=" mr-3 w-[7vw] h-[7vw] mt-[-1vw]" />
+							{{ item[1] }}
+						</p>
+						<Icon icon="ep:arrow-right" class=" text-[#c7c7c7] text-[6vw] mt-[-1]"/>
+					</div>
+				</div>
+
+
+
+				<div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]" style="border-radius: 4vw;">
+          <p style="border-bottom: 1px solid #ccc; line-height:14vw " class="  h-[14vw] text-[3.5vw] text-[#c7c7c7]">其他</p>
+					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw]" v-for="(item) in text.three"
+						:key="item.id2">
+						<p class="flex items-center w-[50vw] font-[500]">
+							<Icon :icon="item[0]" class=" mr-3 w-[7vw] h-[7vw] mt-[-1vw]" />
+							{{ item[1] }}
+						</p>
+						<Icon icon="ep:arrow-right" class=" text-[#c7c7c7] text-[6vw] mt-[-1]"/>
+					</div>
+				</div>
+
+        	<div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]" style="border-radius: 4vw;">
+					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw]" v-for="(item) in text.four"
+						:key="item.id2">
+						<p class="flex items-center w-[50vw] font-[500]">
+							<Icon :icon="item[0]" class=" mr-3 w-[7vw] h-[7vw] mt-[-1vw]" />
+							{{ item[1] }}
+						</p>
+						<Icon icon="ep:arrow-right" class=" text-[#c7c7c7] text-[6vw] mt-[-1]"/>
+					</div>
+				</div>
+        <div class=" mt-[10vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw] h-[15vw] text-[red] text-center" style="border-radius: 4vw; line-height:15vw">
+              退出登录/关闭
+				</div>
+    </div>
+  </Drawer>
     <!-- 轮播1 -->
-    <van-swipe :autoplay="3000" lazy-render class="w-[95vw] h-[35vw] mt-[14vw]">
+    <van-swipe :autoplay="3000" lazy-render class="w-[95vw] h-[35vw] mt-[5vw]">
       <van-swipe-item v-for="item in menu" :key="item.id">
         <img :src="item.pic" class="" />
       </van-swipe-item>
@@ -61,16 +119,17 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
     </div>
 
     <!-- 轮播2 -->
-    <div>
-		<p class="text-2xl mb-3 flex items-center">
+    <div class="mt-[5vw]">
+		<p class="text-[5vw] font-[700] mb-3 flex items-center">
 			推荐歌单
 			<Icon icon="ep:arrow-right-bold" width="20" />
-			<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[200px]" />
+      <button is-link @click="showPopup() ,int='推荐歌单'"   >	<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[60vw]" /></button>
+		
 		</p>
 		<ul class="overflow-hidden h-[40vw]">
 			<div class="swiper-container2 h-[100%] w-[33%]">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide mr-4">
+					<div class="swiper-slide mr-4"  >
 						<div class="w-[32vw] h-[40vw] overflow-hidden relative">
 							<transition name="abc">
 								<div v-if="visibles" class=" absolute top-0 left-0">
@@ -97,6 +156,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 									</p>
 								</div>
 							</transition>
+              
 						</div>
        
 					</div>
@@ -105,6 +165,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
                 :src="item.uiElement.image.imageUrl"
                 alt=""
                 class="w-[32vw] h-[32vw] rounded-[4vw]"
+                style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);"
               />
               <p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] font-[700]">
                 {{ item.uiElement.mainTitle.title }}
@@ -126,12 +187,11 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 	</div>
     <!-- 新歌速递 -->
     <div class="mt-[11vw]">
-      <p class="text-[5vw] font-bold">
-        新歌速递<icon
-          icon="ant-design:right-outlined"
-          class="w-[6vw] h-[6vw] inline-block mt-[-1vw]"
-        />
-      </p>
+      <p class="text-[5vw] font-[700] mb-3 flex items-center">
+			新歌速递
+			<Icon icon="ep:arrow-right-bold" width="20" />
+      <button is-link @click="showPopup() ,int='新歌速递'"   >	<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[60vw]" /></button>
+		</p>
 
       <div class="overflow-auto mt-[5vw]">
         <div>
@@ -145,13 +205,12 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
     </div>
     <!-- 排行榜 -->
     <div>
-      <div class="mt-10">
-        <p class="text-[5vw] font-bold">
-          排行榜<icon
-            icon="ant-design:right-outlined"
-            class="w-[6vw] h-[6vw] inline-block mt-[-1vw]"
-          />
-        </p>
+      <div class="mt-[10vw]">
+        <p class="text-[5vw] font-[700] mb-3 flex items-center">
+		排行榜
+			<Icon icon="ep:arrow-right-bold" width="20" />
+      <button is-link @click="showPopup() ,int='排行榜'"   >	<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[65vw]" /></button>
+		</p>
 
         <div class="overflow-auto">
           <div>
@@ -161,14 +220,13 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
       </div>
     </div>
     <!-- 音乐日历 -->
-    <div>
+    <div class="mt-[5vw]">
       <div class="w-[95vw]">
-        <p class="text-[5vw] font-bold mt-[5vw]">
-          音乐日历<icon
-            icon="ant-design:right-outlined"
-            class="w-[6vw] h-[6vw] inline-block mt-[-1vw]"
-          />
-        </p>
+        <p class="text-[5vw] font-[700] mb-3 flex items-center">
+			音乐日历
+			<Icon icon="ep:arrow-right-bold" width="20" />
+      <button is-link @click="showPopup() ,int='音乐日历'"   >	<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[60vw]" /></button>
+		</p>
         <div>
           <calenda
             class="bg-[#ffffff] rounded-[4vw] mt-[5vw] shadow-md border-b"
@@ -180,13 +238,12 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
       </div>
     </div>
     <!-- 热门话题 -->
-    <div class="overflow-auto">
-      <p class="text-[5vw] font-bold mt-[5vw]">
-        热门话题<icon
-          icon="ant-design:right-outlined"
-          class="w-[6vw] h-[6vw] inline-block mt-[-1vw]"
-        />
-      </p>
+    <div class="overflow-auto mt-[5vw]">
+      <p class="text-[5vw] font-[700] mb-3 flex items-center">
+			热门话题
+			<Icon icon="ep:arrow-right-bold" width="20" />
+      <button is-link @click="showPopup() ,int='热门话题'"   >	<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[60vw]" /></button>
+		</p>
       <div class="overflow-auto">
             <div>
               <trendingTopics  class="w-[420vw]"
@@ -195,11 +252,30 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
       </div>
     </div>
     
+          <van-popup v-model="show" position="bottom" closeable :style="{ height: '30%' }">  
+            <p class="text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;">{{int}}</p>
+            <li class=" flex text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;" >
+                    <Icon icon="uiw:like-o" class="mr-3" />
+                    <p>优先推荐</p>
+                </li>
+                <li class=" flex text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;" >
+                    <Icon icon="uiw:heart-on" class="mr-3" />
+                    <p>减少推荐</p>
+                </li>
+                <li class=" flex text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;" >
+                    <Icon icon="mingcute:more-4-line" class=" mr-3" />
+                    <p>更多内容</p>
+                </li>
+          </van-popup>
+
+
+   
   </div>
   
 </template>
 
 <script>
+import { Toast } from 'vant';
 import axios from 'axios';
 import Swiper from 'swiper';
 import BScroll from '@better-scroll/core';
@@ -224,7 +300,11 @@ export default {
   },
   data() {
     return {
+      int:0,
+      show: false,
+      actions: [{ name: '选项一' }, { name: '选项二' }, { name: '选项三' }],
       visibles: true,
+      // visibles:["1","2","3"],
       drawerVisible:false,
       visible: true,
       currentMonth: '',
@@ -242,12 +322,50 @@ export default {
         ['歌单', 'solar:playlist-minimalistic-2-outline'],
         ['排行榜', 'icon-park-outline:ranking'],
         ['召回有礼', 'solar:gift-bold'],
-        [' 每日推荐', 'ion:calendar-number'],
-        ['私人漫游', 'material-symbols:radio'],
-        ['歌单', 'solar:playlist-minimalistic-2-outline'],
-        ['排行榜', 'icon-park-outline:ranking'],
-        ['召回有礼', 'solar:gift-bold'],
+        ['直播', 'solar:chat-round-video-bold'],
+        ['关注新歌', 'ph:user-fill'],
+        ['一歌一遇', 'icon-park-solid:poker'],
+        ['收藏家', 'ri:auction-fill'],
+        ['游戏专区', 'mingcute:game-1-line'],
       ],
+        text: {
+				one: [
+					['mdi:email-outline', '我的消息'],
+					['iconamoon:cloud-thin', '云贝中心'],
+					['humbleicons:bulb', '创作者中心'],
+				],
+				two: [
+					['streamline:religion-hexagram-star-jew-jewish-judaism-hexagram-culture-religion-david', '趣测'],
+					['ion:ticket-outline', '云村有票'],
+					['teenyicons:box-outline', '多多西西口袋'],
+					['material-symbols:local-mall-outline-rounded', '商城'],
+					['simple-icons:beats', 'Beat专区'],
+					['ri:bell-line', '口袋彩铃'],
+					['icon-park-outline:game-three', '游戏专区']
+				],
+				three: [
+					['arcticons:set-edit', '设置'],
+					['circum:dark', '涤色模式'],
+					['ri:time-line', '定时关闭'],
+					['icon-park-outline:clothes-crew-neck', '个性装扮'],
+					['ic:twotone-headset', '边听边存'],
+					['icon-park-outline:online-meeting', '在线听歌免流量'],
+					['arcticons:callsblacklist', '音乐黑名单'],
+					['el:ok-circle', '青少年模式'],
+					['iconoir:clock', '音乐闹钟'],
+				],
+        four: [
+					['icon-park-outline:transaction-order', '我的订单'],
+					['mdi:coupon-outline', '优惠券'],
+					['mdi:customer-service', '我的客服'],
+					['ph:share-fill', '分享网易云音乐'],
+					['streamline:interface-file-clipboard-text-edition-form-task-checklist-edit-clipboard', '个人信息收集与使用清单'],
+					['uiw:information-o', '个人信息第三方共享清单'],
+					['uiw:information-o', '个人信息与隐私保护'],
+					['uiw:information-o', '关于'],
+
+				]
+			},
       swiper: null,
     };
   },
@@ -257,6 +375,11 @@ export default {
 		});
 	},
   methods: {
+    
+    updateOverflow() {
+      const body = document.querySelector('body');
+      body.setAttribute('style', `overflow: ${this.drawerVisible? ' hidden' : ' visible'}`);
+    },
     getswiper(){
 			new Swiper('.swiper-container', {
 				paginationClickable: true,
@@ -275,7 +398,7 @@ export default {
 				},
 			});
 		},
-  
+    
 
     fn(e) {
       this.drawerVisible = e;
@@ -300,9 +423,13 @@ export default {
           this.rili = res.data.data.calendarEvents;
         });
     },
+    showPopup() {
+      this.show = true;
+    },
   },
-  
+ 
   mounted() {
+      this.updateOverflow();
     	setInterval(() => {
 			this.visibles = !this.visibles
 		}, 3000);
@@ -333,11 +460,13 @@ export default {
       });
   },
 };
+
 </script>
 
 <style scoped>
 .active {
   color: red;
+ 
 }
 .placeholder-indent::placeholder {
   text-indent: 4em;
@@ -423,6 +552,7 @@ body{
 
 .abc-leave {
 	transform: translateY(0) scale(1);
+ 
 }
 
 .abc-leave-active {
@@ -432,4 +562,17 @@ body{
 .abc-leave-to {
 	transform: translateY(-100%) scale(.7);
 }
+
+div::-webkit-scrollbar {
+  width:0;
+} 
+
+div::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.div::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+}
+
 </style>
