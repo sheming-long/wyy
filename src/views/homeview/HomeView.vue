@@ -1,9 +1,10 @@
-<template >
-  <div class="w-[100vw] pl-[2.5vw] pr-[2.5vw]  overflow-hidden pb-[5vw]"  @click="updateOverflow" >
-    <header class=" h-[9vw] w-[100vw] top-0 z-30   ml-[-2.5vw]" >
-      <button @click="drawerVisible = !drawerVisible,updateOverflow"  class="w-[9vw] h-[9vw] float-left" > <icon icon="prime:bars" class="w-[9vw] h-[9vw] float-left"  /></button>
+<template  >
+  <div :class="{ dark: switchCheckStatus }">
+  <div class="w-[100vw] pl-[2.5vw] pr-[2.5vw]  overflow-hidden pb-[5vw]  dark:bg-gray-900 dark:text-[#fff] "  @click="updateOverflow"  >
+    <header class=" h-[9vw] w-[100vw] top-0 z-30   ml-[-2.5vw] " >
+      <button @click="drawerVisible = !drawerVisible, updateOverflow"  class="w-[9vw] h-[9vw] float-left" > <icon icon="prime:bars" class="w-[9vw] h-[9vw] float-left"  /></button>
     <!-- <Drawer :visible="drawerVisible" @自定义事件="(e) => (drawerVisible = e)"> -->
-   
+     
       <input
         type="text"
         class="border-[none] h-[9vw] ml-3 w-[72vw] outline-sky-600 bg-gradient-to-r from-[#dddbfb] to-pink-500 rounded-[4.5vw] placeholder-indent pl-[5vw]"
@@ -14,6 +15,7 @@
         class="w-[9vw] h-[9vw] float-right inline-block"
       />
     </header>
+    <!-- 左抽屉 -->
         <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class="overflow-y: auto;">
           <div class="h-[100%]">
                <header class="w-[80vw] h-[5vw] pt-[1vw] flex " style="margin-bottom: 12vw;">
@@ -53,8 +55,8 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
                
                </div>
 
-    <div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]" style="border-radius: 4vw;">
-					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw]" v-for="(item) in text.one"
+    <div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]  dark:bg-[#2c2c2c] dark:text-[#fff]" style="border-radius: 4vw;">
+					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw] " v-for="(item) in text.one"
 						:key="item.id2">
 						<p class="flex items-center w-[50vw] font-[500]">
 							<Icon :icon="item[0]" class=" mr-3 w-[7vw] h-[7vw] mt-[-1vw]" />
@@ -63,7 +65,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 						<Icon icon="ep:arrow-right" class=" text-[#c7c7c7] text-[6vw] mt-[-1]"/>
 					</div>
 				</div>
-        <div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]" style="border-radius: 4vw;">
+        <div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]  dark:bg-[#2c2c2c] dark:text-[#fff]" style="border-radius: 4vw;">
           <p style="border-bottom: 1px solid #ccc; line-height:14vw " class="  h-[14vw] text-[3.5vw] text-[#c7c7c7]">音乐服务</p>
 					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw]" v-for="(item) in text.two"
 						:key="item.id2">
@@ -77,7 +79,8 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 
 
 
-				<div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]" style="border-radius: 4vw;">
+				<div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw] relative  dark:bg-[#2c2c2c] dark:text-[#fff]" style="border-radius: 4vw;">
+          <v-switch v-model="switchCheckStatus" class=" absolute left-[56vw] top-[37vw]"/>
           <p style="border-bottom: 1px solid #ccc; line-height:14vw " class="  h-[14vw] text-[3.5vw] text-[#c7c7c7]">其他</p>
 					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw]" v-for="(item) in text.three"
 						:key="item.id2">
@@ -89,7 +92,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 					</div>
 				</div>
 
-        	<div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]" style="border-radius: 4vw;">
+        	<div class=" mt-[4vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw]  dark:bg-[#2c2c2c] dark:text-[#fff]" style="border-radius: 4vw;">
 					<div class="flex  justify-between items-center text-[4vw] my-3 h-[14vw]" v-for="(item) in text.four"
 						:key="item.id2">
 						<p class="flex items-center w-[50vw] font-[500]">
@@ -99,7 +102,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 						<Icon icon="ep:arrow-right" class=" text-[#c7c7c7] text-[6vw] mt-[-1]"/>
 					</div>
 				</div>
-        <div class=" mt-[10vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw] h-[15vw] text-[red] text-center" style="border-radius: 4vw; line-height:15vw">
+        <div class=" mt-[10vw] bg-white ml-[2.5vw] pl-[5vw] pr-[5vw] w-[70vw] h-[15vw] text-[red] text-center  dark:bg-[#2c2c2c] " style="border-radius: 4vw; line-height:15vw">
               退出登录/关闭
 				</div>
     </div>
@@ -193,7 +196,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
       <button is-link @click="showPopup() ,int='新歌速递'"   >	<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[60vw]" /></button>
 		</p>
 
-      <div class="overflow-auto mt-[5vw]">
+      <div class="overflow-auto mt-[5vw] dark:bg-[#25272e] dark:text-[#fff]">
         <div>
           <expressDelivery
             class="w-[800vw]"
@@ -204,7 +207,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
       </div>
     </div>
     <!-- 排行榜 -->
-    <div>
+    <div class=" ">
       <div class="mt-[10vw]">
         <p class="text-[5vw] font-[700] mb-3 flex items-center">
 		排行榜
@@ -214,22 +217,22 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 
         <div class="overflow-auto">
           <div>
-            <ranking class="w-[600vw] pt-[5vw] h-[92vw]" :king="phb" />
+            <ranking class="w-[600vw] pt-[5vw] h-[92vw] " :king="phb" />
           </div>
         </div>
       </div>
     </div>
     <!-- 音乐日历 -->
-    <div class="mt-[5vw]">
+    <div class="mt-[5vw]  dark:bg-[#25272e] dark:text-[#fff]">
       <div class="w-[95vw]">
         <p class="text-[5vw] font-[700] mb-3 flex items-center">
 			音乐日历
 			<Icon icon="ep:arrow-right-bold" width="20" />
       <button is-link @click="showPopup() ,int='音乐日历'"   >	<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[60vw]" /></button>
 		</p>
-        <div>
+        <div >
           <calenda
-            class="bg-[#ffffff] rounded-[4vw] mt-[5vw] shadow-md border-b"
+            class="bg-[#ffffff] rounded-[4vw] mt-[5vw] shadow-md border-b dark:bg-[#25272e] dark:text-[#fff] dark:shadow-[0]"
             :xxs="rili"
             :Month="currentMonth"
             :Day="currentDay"
@@ -252,7 +255,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
       </div>
     </div>
     
-          <van-popup v-model="show" position="bottom" closeable :style="{ height: '30%' }">  
+          <van-popup v-model="show" position="bottom" closeable :style="{ height: '30%' } " class=" dark:bg-[#25272e] dark:text-[#fff]">  
             <p class="text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;">{{int}}</p>
             <li class=" flex text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;" >
                     <Icon icon="uiw:like-o" class="mr-3" />
@@ -271,7 +274,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 
    
   </div>
-  
+</div>
 </template>
 
 <script>
@@ -300,6 +303,7 @@ export default {
   },
   data() {
     return {
+      switchCheckStatus: false,
       int:0,
       show: false,
       actions: [{ name: '选项一' }, { name: '选项二' }, { name: '选项三' }],
@@ -562,7 +566,7 @@ body{
 .abc-leave-to {
 	transform: translateY(-100%) scale(.7);
 }
-
+/* 
 div::-webkit-scrollbar {
   width:0;
 } 
@@ -573,6 +577,6 @@ div::-webkit-scrollbar-track {
 
 .div::-webkit-scrollbar-thumb {
   background-color: #ffffff;
-}
+} */
 
 </style>

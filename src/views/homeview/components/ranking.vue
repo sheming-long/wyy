@@ -1,7 +1,7 @@
 <template>
-     <div >
+     <div  class="dark:bg-[#25272e] dark:text-[#fff]">
             <div
-              class="float-left mr-[5vw] bg-[#ffffff] h-[86vw] text-2xl rounded-[4vw] shadow-md border-b"
+              class="float-left mr-[5vw] bg-[#ffffff] h-[86vw] text-2xl rounded-[4vw] shadow-md border-b dark:bg-[#25272e] dark:text-[#fff]"
             
               v-for="item in king"
               :key="item.king"
