@@ -1,19 +1,15 @@
 import Vue from 'vue';
-import './index.css';
 import { Icon } from '@iconify/vue2';
-import indexView from './indexView/IndexView.vue';
+import App from './App.vue';
 import Vant from 'vant';
 import 'vant/lib/index.css';
-import BScroll from '@better-scroll/core';
-import ScrollBar from '@better-scroll/scroll-bar';
-
+import Drawer from '@/commponent/Drawer.vue';
+Vue.component('Icon', Icon);
+Vue.component('Drawer', Drawer);
 Vue.use(Vant);
-
-
-
-
 Vue.component('Icon', Icon);
 const vm = new Vue({
-  el: '#app',
-  render: (h) => h(indexView),
+  el: '#app', // 挂载节点
+  components: { App },
+  template: '<App />',
 });
