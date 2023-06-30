@@ -1,7 +1,7 @@
 <template>
     <div >
           <div
-            class="float-left mr-[5vw]"
+            class="float-left mr-[5vw] dark:bg-[#25272e] dark:text-[#fff]"
             v-for="item in express"
             :key="item.ui"
           >
