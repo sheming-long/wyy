@@ -15,14 +15,14 @@
                 <p class="whitespace-nowrap text-[4vw] font-bold">
                   {{ item.resources[0].uiElement.mainTitle.title }}
                 </p>
-                <p class="whitespace-nowrap text-[3vw] text-[#7b7d82]">
+                <p class="whitespace-nowrap text-[3vw] text-[#7b7d82] ">
                   <span
-                    class="text-[10px]"
+                    class="text-[10px] rounded-[10px]"
                     style="
                       color: red;
                       background-color: #efe6e4;
                       padding: 3px;
-                      border-radius: 2px;
+                      border-radius: 5px;
                     "
                     >{{ Delivery[0] }}</span
                   >
@@ -42,14 +42,14 @@
                 <p class="whitespace-nowrap text-[4vw] font-bold">
                   {{ item.resources[1].uiElement.mainTitle.title }}
                 </p>
-                <p class="whitespace-nowrap text-[3vw] text-[#7b7d82]">
+                <p class="whitespace-nowrap text-[3vw] text-[#7b7d82] ">
                   <span
-                    class="text-[10px]"
+                    class="text-[10px] rounded-[10px]"
                     style="
                       color: red;
                       background-color: #e6e0b9;
                       padding: 3px;
-                      border-radius: 2px;
+                      border-radius: 5px;
                       color: yellow;
                     "
                     >{{ Delivery[1] }}</span
@@ -70,14 +70,14 @@
                 <p class="whitespace-nowrap text-[4vw] font-bold">
                   {{ item.resources[2].uiElement.mainTitle.title }}
                 </p>
-                <p class="whitespace-nowrap text-[3vw] text-[#7b7d82]">
+                <p class="whitespace-nowrap text-[3vw] text-[#7b7d82] ">
                   <span
-                    class="text-[10px]"
+                    class="text-[10px] rounded-[10px]"
                     style="
                       color: red;
                       background-color: #e6e0b9;
                       padding: 3px;
-                      border-radius: 2px;
+                      border-radius: 5px;
                       color: yellow;
                     "
                     >{{Delivery[2]}}</span

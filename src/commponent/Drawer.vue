@@ -3,7 +3,7 @@
     <transition :name="direction">
       <div
         v-show="visible"
-        class="w-screen h-[200vh] bg-white absolute z-[999] pl-[2.5vw]"
+        class="w-screen h-[200vh] bg-[#f5f5f5] absolute z-[999] pl-[5vw]"
         :style="[drawerContentStyle, { width }]"
       >
         <div>
@@ -47,7 +47,7 @@ export default {
     },
     width: {
       type: [Number, String],
-      default: '80vw',
+      default: '85vw',
     },
   },
   // 计算属性
@@ -67,6 +67,8 @@ export default {
         };
       } else if (this.direction === 'ltr') {
         return {
+          paddingBottom: "10vw",
+          overflow: "auto",
           height: '100vh',
           left: 0,
           top: 0,
@@ -122,6 +124,7 @@ export default {
 .ltr-enter-to,
 .ltr-leave {
   transform: translateX(0);
+
 }
 
 </style>

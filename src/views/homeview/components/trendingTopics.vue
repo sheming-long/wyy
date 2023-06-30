@@ -3,7 +3,7 @@
          
         >
           <div
-            v-for="item in playlists"
+            v-for="(item,index) in playlists"
             :key="item.id"
             class="w-[60vw] h-[35vw] rounded-[4vw] float-left"
             style="
@@ -18,7 +18,7 @@
                 class="flex justify-between items-center text-2xl font-extrabold"
               ></div>
               <div
-                class="bg-[#949996] w-[60vw] h-[30vw] rounded-[2vw] px-[3vw] flex flex-col justify-evenly"
+                class="w-[60vw] h-[30vw] rounded-[2vw] px-[3vw] flex flex-col justify-evenly" :style="{'background-color': bgc[index]}"
               >
                 <div class="flex text-[#fff] items-center">
                   <Icon icon="icon-park-solid:topic" width="5vw" height="5vw" />
@@ -34,7 +34,7 @@
                   <img
                     :src="item.uiElement.image.imageUrl"
                     alt=""
-                    class="h-[15vw] w-[15vw]"
+                    class="h-[15vw] w-[15vw] rounded-[2vw]"
                   />
                 </div>
               </div>
@@ -45,11 +45,23 @@
 
 <script>
 
-
 export default{
- 
-   name:"trendingTopics",
-   props:["playlists"]
-
+  name: "trendingTopics",
+  props: ["playlists"],
+  computed: {
+    bgc() {
+      return [
+        "#919192",
+        "#a68b7d",
+        "#7f92a6",
+        "#7c7ea2",
+        "#8d7ec4",
+        "#89d4b2"
+      ];
+    }
+  }
 }
 </script>
+<style>
+ 
+</style>

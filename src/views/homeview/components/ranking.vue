@@ -6,7 +6,7 @@
               v-for="item in king"
               :key="item.king"
             >
-              <p style="margin-top: 10vw; padding: 0 3vw" class=" text-[5vw] font-bold">
+              <p style="margin-top: 3vw; padding: 0 3vw" class=" text-[5vw] font-bold">
                 霸歌榜
                 <icon
                   icon="ant-design:right-outlined"
@@ -45,7 +45,7 @@
                     }}
                   </p>
                   <p
-                    class="absolute text-[#cea951] text-[4vw] left-[-6vw] font-extrabold"
+                    class="absolute text-[#cea951] text-[5vw] left-[-6vw] font-extrabold"
                   >
                     1
                   </p>
@@ -80,7 +80,7 @@
                     }}
                   </p>
                   <p
-                    class="absolute text-[#767a93] text-[4vw] left-[-6vw] font-extrabold"
+                    class="absolute text-[#767a93] text-[5vw] left-[-6vw] font-extrabold"
                   >
                     2
                   </p>
@@ -115,7 +115,7 @@
                     }}
                   </p>
                   <p
-                    class="absolute text-[#b58262] text-[4vw] left-[-6vw] font-extrabold"
+                    class="absolute text-[#b58262] text-[5vw] left-[-6vw] font-extrabold"
                   >
                     3
                   </p>
