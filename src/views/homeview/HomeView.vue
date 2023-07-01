@@ -1,6 +1,6 @@
 <template  >
   <div :class="{ dark: switchCheckStatus }">
-  <div class="w-[100vw] pl-[2.5vw] pr-[2.5vw]  overflow-hidden pb-[5vw]  dark:bg-gray-900 dark:text-[#fff] "  @click="updateOverflow"  >
+  <div class="w-[100vw] pl-[2.5vw] pr-[2.5vw]  overflow-hidden pb-[5vw]  dark:bg-gray-900 dark:text-[#fff] dark:gundong"  @click="updateOverflow"  >
     <header class=" h-[9vw] w-[100vw] top-0 z-30   ml-[-2.5vw] " >
       <button @click="drawerVisible = !drawerVisible, updateOverflow"  class="w-[9vw] h-[9vw] float-left" > <icon icon="prime:bars" class="w-[9vw] h-[9vw] float-left"  /></button>
     <!-- <Drawer :visible="drawerVisible" @自定义事件="(e) => (drawerVisible = e)"> -->
@@ -16,7 +16,7 @@
       />
     </header>
     <!-- 左抽屉 -->
-        <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class="overflow-y: auto;">
+        <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class="overflow-y: auto; ">
           <div class="h-[100%]">
                <header class="w-[80vw] h-[5vw] pt-[1vw] flex " style="margin-bottom: 12vw;">
                   <img src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1" alt="" class="w-[12vw] h-[12vw] rounded-[50%] bg-cover">
@@ -115,7 +115,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
     </van-swipe>
 
     <!-- 菜单 -->
-    <div class="overflow-auto">
+    <div class="overflow-auto dark:gundong">
       <div>
         <indexmenu class="flex justify-between mt-4 w-[200vw]" :menu="wenzi" />
       </div>
@@ -129,7 +129,61 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
       <button is-link @click="showPopup() ,int='推荐歌单'"   >	<Icon icon="teenyicons:more-vertical-outline" width="25" class=" ml-[60vw]" /></button>
 		
 		</p>
-		<ul class="overflow-hidden h-[40vw]">
+  <div class=" overflow-auto">
+      <div class="w-[253vw] flex h-[45vw]">
+        <div class='pt-[1vw] relative w-[32vw] mr-4'>
+            <div class='w-[32vw] relative z-[1]'>
+               <div class='w-[32vw] h-[32vw] bg-[#f3f3f3] overflow-hidden relative'>
+                <transition name="abc" v-for="(item, index) in subTitle" :key="item.vls">
+                    <div v-if="visiblesss === index" class="absolute top-0 left-0">
+                      <img :src="item.uiElement?.image.imageUrl" alt="" class="w-[32vw] h-[32vw] rounded-[8px] bg-cover">
+                     
+                      <div class="absolute top-[2vw] right-[2.5vw] font-[800] text-[#fff] flex items-center">
+                        <span class="absolute top-0 right-3 text-[#ffffff] whitespace-nowrap text-right"><icon
+                  icon="prime:caret-right"
+                  class="float-left w-[4vw] h-[4vw] text-[#ffffff] mt-[0.8vw] "
+                />
+                {{
+                  Math.floor(
+                    item.resources[0].resourceExtInfo.playCount / 10000
+                  )
+                }}万</span>
+                      </div>
+                    </div>
+                </transition>
+               </div>
+               <p class=' text-[#3E4759]  absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] font-[700]'> {{ resourceData || (subTitle[0].uiElement?.mainTitle.title) }}</p>
+            </div>
+            <div class='w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0]'></div>
+         </div>
+       
+
+         <div v-for="(item) in subTitle" :key="item.id2" class=" mr-4 relative w-[32vw]">
+					 <img
+                :src="item.uiElement?.image.imageUrl"
+                alt=""
+                class="w-[32vw] h-[32vw] rounded-[4vw] z-[30] relative"
+                style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);"
+              />
+              <p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] font-[700]">
+                {{ item.uiElement?.mainTitle.title }}
+              </p>
+              <div class="absolute top-[2vw] right-[2.5vw] font-[800] text-[#fff] flex items-center z-[35]">
+                        <span class="absolute top-0 right-3 text-[#ffffff] whitespace-nowrap text-right"><icon
+                  icon="prime:caret-right"
+                  class="float-left w-[4vw] h-[4vw] text-[#ffffff] mt-[0.8vw] "
+                />
+                {{
+                  Math.floor(
+                    item.resources[0].resourceExtInfo.playCount / 10000
+                  )
+                }}万</span>
+                      </div>
+                <div class='w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0]'></div>
+					</div>
+      </div>
+  </div>
+		<!-- <ul class="overflow-hidden h-[40vw]">
 			<div class="swiper-container2 h-[100%] w-[33%]">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide mr-4"  >
@@ -163,30 +217,11 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 						</div>
        
 					</div>
-			     		<div v-for="(item) in subTitle" :key="item.id2" class="swiper-slide mr-4 relative">
-					 <img
-                :src="item.uiElement.image.imageUrl"
-                alt=""
-                class="w-[32vw] h-[32vw] rounded-[4vw]"
-                style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);"
-              />
-              <p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] font-[700]">
-                {{ item.uiElement.mainTitle.title }}
-              </p>
-              <span class="absolute top-0 right-3 text-[#ffffff]"
-                ><icon
-                  icon="prime:caret-right"
-                  class="float-left w-[4vw] h-[4vw] text-[#ffffff] mt-[0.8vw]"
-                />
-                {{
-                  Math.floor(
-                    item.resources[0].resourceExtInfo.playCount / 10000
-                  )
-                }}万</span>
-					</div>
+
+			     
 				</div>
 			</div>
-		</ul>
+		</ul> -->
 	</div>
     <!-- 新歌速递 -->
     <div class="mt-[11vw]">
@@ -303,6 +338,8 @@ export default {
   },
   data() {
     return {
+      visiblesss:2,
+      resourceData: '',
       switchCheckStatus: false,
       int:0,
       show: false,
@@ -379,7 +416,17 @@ export default {
 		});
 	},
   methods: {
-    
+    animateItems() {
+    setInterval(() => {
+      this.visiblesss++;
+      if (this.visiblesss === 5) {
+        this.visiblesss = 0;
+      }
+      if (this.visiblesss< 6) {
+        this.resourceData = this.subTitle[this.visiblesss].uiElement.mainTitle.title;
+      }
+    }, 5000);
+  },
     updateOverflow() {
       const body = document.querySelector('body');
       body.setAttribute('style', `overflow: ${this.drawerVisible? ' hidden' : ' visible'}`);
@@ -433,6 +480,7 @@ export default {
   },
  
   mounted() {
+      this.animateItems();
       this.updateOverflow();
     	setInterval(() => {
 			this.visibles = !this.visibles
@@ -566,17 +614,23 @@ body{
 .abc-leave-to {
 	transform: translateY(-100%) scale(.7);
 }
-/* 
+
 div::-webkit-scrollbar {
   width:0;
 } 
 
 div::-webkit-scrollbar-track {
-  background-color: #ffffff;
+ opacity: 0;
 }
-
-.div::-webkit-scrollbar-thumb {
-  background-color: #ffffff;
+div::-webkit-scrollbar-thumb {
+  opacity: 0;
+}
+/* .gundong::-webkit-scrollbar-thumb {
+  --tw-bg-opacity: 1;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+.gundong::-webkit-scrollbar-thumb {
+  --tw-bg-opacity: 1;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 } */
-
 </style>
