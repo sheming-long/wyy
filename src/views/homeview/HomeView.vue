@@ -162,7 +162,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 					 <img
                 :src="item.uiElement?.image.imageUrl"
                 alt=""
-                class="w-[32vw] h-[32vw] rounded-[4vw] z-[30] relative"
+                class="w-[32vw] h-[32vw] rounded-[4vw] z-[30] relative mt-[1vw]"
                 style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);"
               />
               <p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] font-[700]">
