@@ -386,7 +386,7 @@ export default {
 				],
 				three: [
 					['arcticons:set-edit', '设置'],
-					['circum:dark', '涤色模式'],
+					['circum:dark', '深色模式'],
 					['ri:time-line', '定时关闭'],
 					['icon-park-outline:clothes-crew-neck', '个性装扮'],
 					['ic:twotone-headset', '边听边存'],
