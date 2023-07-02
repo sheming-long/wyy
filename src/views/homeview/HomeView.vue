@@ -420,7 +420,7 @@ export default {
     setInterval(() => {
       this.visiblesss++;
       if (this.visiblesss === 5) {
-        this.visiblesss = 0;
+        this.visiblesss = 2;
       }
       if (this.visiblesss< 6) {
         this.resourceData = this.subTitle[this.visiblesss].uiElement.mainTitle.title;
