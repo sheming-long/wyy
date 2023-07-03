@@ -162,7 +162,7 @@
 </template>
 
 <script>
-import inedx from '@/commponent/Switch/inedx';
+import inedx from '@/commponent/Switch.vue';
 import { fetchToplistDetail } from '@/request';
 import axios from 'axios';
 export default {

@@ -571,7 +571,6 @@ import expressDelivery from './components/expressDelivery.vue'; //新歌速递
 import ranking from './components/ranking.vue'; //排行榜
 import calenda from './components/calenda.vue'; //日历
 import trendingTopics from './components/trendingTopics.vue';
-
 export default {
   components: {
     ranking,

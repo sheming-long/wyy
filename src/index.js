@@ -4,9 +4,8 @@ import App from './App.vue';
 import Drawer from '@/commponent/Drawer/index';
 import router from '@/router/index';
 // 引入switch
-import Switch from '@/commponent/Switch/inedx';
-// Vue.component('v-switch', Switch);
-Vue.use(Switch)
+import Switch from './commponent/Switch.vue';
+Vue.component('v-switch', Switch);
 
 
 //引入vant
