@@ -1,6 +1,6 @@
 <template>
        <div >
-        <p class="text-[5vw] font-bold">
+        <p class="text-[4vw] font-bold">
           推荐歌单<icon
             icon="ant-design:right-outlined"
             class="w-[6vw] h-[6vw] inline-block mt-[-1vw]"

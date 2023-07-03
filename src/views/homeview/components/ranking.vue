@@ -1,18 +1,18 @@
 <template>
-     <div  class="dark:bg-[#25272e] dark:text-[#fff]">
+     <div  class=" dark:text-[#fff]">
             <div
-              class="float-left mr-[5vw] bg-[#ffffff] h-[86vw] text-2xl rounded-[4vw] shadow-md border-b dark:bg-[#25272e] dark:text-[#fff]"
+              class="float-left mr-[5vw] bg-[#ffffff] h-[78vw] text-2xl rounded-[4vw] shadow-md border-b dark:bg-[#25272e] dark:text-[#fff] w-[89vw]"
             
               v-for="item in king"
               :key="item.king"
             >
-              <p style="margin-top: 3vw; padding: 0 3vw" class=" text-[5vw] font-bold">
+              <p style="margin-top: 3vw; padding: 0 3vw" class=" text-[5vw] font-bold text-[#4a4c51] dark:text-[#dededf]">
                 霸歌榜
                 <icon
                   icon="ant-design:right-outlined"
                   class="w-[6vw] h-[6vw] inline-block mt-[-1vw]"
                 />
-                <span class="float-right text-[#929a9a] text-xl"
+                <span class="float-right text-[#929a9a] text-[3vw]"
                   >云村用户都在听</span
                 >
               </p>
@@ -22,22 +22,22 @@
               >
                 <img
                   :src="item.resources[0].uiElement.image.imageUrl"
-                  alt=""
-                  class="w-[15vw] h-[15vw] rounded-[3vw]"
+                  alt="" 
+                  class="w-[15vw] h-[15vw] rounded-[3vw] bg-cover"
                 />
                 <div class="xuanz relative">
                   <p
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[80vw] leading-[5vw] font-bold"
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[66vw] leading-[5vw] font-bold"
                   >
                     {{ item.resources[0].uiElement.mainTitle.title }}
                   </p>
                   <p
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[75vw] text-right text-[red] leading-[5vw] "
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] w-[75vw] text-right text-[red] leading-[5vw] pr-[9vw]"
                   >
                     {{ item.resources[0].uiElement.labelText.text }}
                   </p>
                   <p
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] leading-[3vw] w-[80vw]"
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] leading-[3vw] w-[80vw] text-[#84888c]"
                   >
                     {{
                       item.resources[0].resourceExtInfo?.songData.artists[0]
@@ -45,7 +45,7 @@
                     }}
                   </p>
                   <p
-                    class="absolute text-[#cea951] text-[5vw] left-[-6vw] font-extrabold"
+                    class="absolute text-[#cea951] text-[4vw] left-[-6vw] font-extrabold"
                   >
                     1
                   </p>
@@ -58,21 +58,21 @@
                 <img
                   :src="item.resources[1].uiElement.image.imageUrl"
                   alt=""
-                  class="w-[15vw] h-[15vw] rounded-[3vw]"
+                  class="w-[15vw] h-[15vw] rounded-[3vw] bg-cover"
                 />
                 <div class="xuanz relative">
                   <p
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[80vw] leading-[5vw] font-bold"
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[66vw] leading-[5vw] font-bold "
                   >
                     {{ item.resources[1].uiElement.mainTitle.title }}
                   </p>
                   <p
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[75vw] text-right text-[red] leading-[5vw] " 
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] w-[75vw] text-right text-[red] leading-[5vw] pr-[9vw] " 
                   >
                     {{ item.resources[1].uiElement.labelText.text }}
                   </p>
                   <p
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] leading-[3vw] w-[80vw]"
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] leading-[3vw] w-[80vw] text-[#84888c]"
                   >
                     {{
                       item.resources[1].resourceExtInfo?.songData.artists[0]
@@ -80,7 +80,7 @@
                     }}
                   </p>
                   <p
-                    class="absolute text-[#767a93] text-[5vw] left-[-6vw] font-extrabold"
+                    class="absolute text-[#767a93] text-[4vw] left-[-6vw] font-extrabold"
                   >
                     2
                   </p>
@@ -93,21 +93,21 @@
                 <img
                   :src="item.resources[2].uiElement.image.imageUrl"
                   alt=""
-                  class="w-[15vw] h-[15vw] rounded-[3vw] bg-[100%]"
+                  class="w-[15vw] h-[15vw] rounded-[3vw] bg-[100%] bg-cover"
                 />
                 <div class="xuanz relative">
                   <p
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[80vw] leading-[5vw] font-bold"
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[66vw] leading-[5vw] font-bold"
                   >
                     {{ item.resources[2].uiElement.mainTitle.title }}
                   </p>
                   <p 
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[4vw] w-[75vw] text-right text-[red] leading-[5vw] "
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] w-[75vw] text-right text-[red] leading-[5vw] pr-[9vw]"
                   >
                     {{ item.resources[2].uiElement.labelText.text }}
                   </p>
                   <p
-                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] leading-[3vw] w-[80vw]"
+                    class="overflow-hidden overflow-ellipsis whitespace-nowrap text-[3vw] leading-[3vw] w-[80vw] text-[#84888c]"
                   >
                     {{
                       item.resources[2].resourceExtInfo?.songData.artists[0]
@@ -115,7 +115,7 @@
                     }}
                   </p>
                   <p
-                    class="absolute text-[#b58262] text-[5vw] left-[-6vw] font-extrabold"
+                    class="absolute text-[#b58262] text-[4vw] left-[-6vw] font-extrabold"
                   >
                     3
                   </p>

@@ -1,0 +1,206 @@
+{
+    "code": 200,
+    "data": [
+        {
+            "searchWord": "笼",
+            "score": 28335,
+            "content": "",
+            "source": 0,
+            "iconType": 1,
+            "iconUrl": "https://p1.music.126.net/2zQ0d1ThZCX5Jtkvks9aOQ==/109951163968000522.png",
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "向云端",
+            "score": 19833,
+            "content": "",
+            "source": 0,
+            "iconType": 1,
+            "iconUrl": "https://p1.music.126.net/2zQ0d1ThZCX5Jtkvks9aOQ==/109951163968000522.png",
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "我想念",
+            "score": 19811,
+            "content": "汪苏泷 / 王赫野一拳把我们打回2017的夏天",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "featured"
+        },
+        {
+            "searchWord": "情人",
+            "score": 18255,
+            "content": "气氛开始升温 危险又迷人",
+            "source": 0,
+            "iconType": 1,
+            "iconUrl": "https://p1.music.126.net/2zQ0d1ThZCX5Jtkvks9aOQ==/109951163968000522.png",
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "流沙",
+            "score": 18154,
+            "content": "真如陶喆所唱，爱情好像流沙那样吗？",
+            "source": 0,
+            "iconType": 5,
+            "iconUrl": "https://p1.music.126.net/PtgUJbcvDAY0HKWpmOB2HA==/109951163967988470.png",
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "that girl",
+            "score": 15223,
+            "content": "大火的欧美经典热单！",
+            "source": 0,
+            "iconType": 5,
+            "iconUrl": "https://p1.music.126.net/PtgUJbcvDAY0HKWpmOB2HA==/109951163967988470.png",
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "蔡徐坤",
+            "score": 14981,
+            "content": "新生代偶像艺人了解一下",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "凄美地",
+            "score": 10932,
+            "content": "Tia翻唱郭顶，超有律动~",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "金曲奖",
+            "score": 10897,
+            "content": "2023年第34届金曲奖提名",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "featured"
+        },
+        {
+            "searchWord": "消失的她",
+            "score": 10889,
+            "content": "",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "林俊杰",
+            "score": 10347,
+            "content": "看看行走的CD机又发什么新歌啦~",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "悬溺",
+            "score": 9261,
+            "content": "这个名字读快了就是 喜欢你",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "薛之谦",
+            "score": 8808,
+            "content": "老薛一发歌就能掀起狂潮！",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "陶喆",
+            "score": 8028,
+            "content": "R&B音乐教父，写出Melody的陶喆",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "可不可以",
+            "score": 5790,
+            "content": "可不可以和你在一起",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "天若有情",
+            "score": 5749,
+            "content": "当年的电影《天若有情》，现在听着歌都会泪目啊~",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "张杰",
+            "score": 5581,
+            "content": "与张杰一起，从现在到未来，一直温暖无限！",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "爱情转移",
+            "score": 5014,
+            "content": "陈奕迅献唱《爱情呼叫转移》主题曲",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "五月天",
+            "score": 5011,
+            "content": "深情最是 阿信词 怪兽曲♡",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        },
+        {
+            "searchWord": "予你",
+            "score": 4889,
+            "content": "你是我的解药，我会陪你过冬天",
+            "source": 0,
+            "iconType": 0,
+            "iconUrl": null,
+            "url": "",
+            "alg": "alg_search_rec_hotquery_base_hotquery"
+        }
+    ],
+    "message": "success"
+}

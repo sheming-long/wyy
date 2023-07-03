@@ -3,8 +3,8 @@
     <div
       v-for="item in xxs"
       :key="item.da"
-      class="flex"
-      style="display: flex; justify-content: space-around"
+      class="flex h-[20vw]"
+      style="display: flex; justify-content: space-around ;"
     >
       <div
         class="flex-nowrap"
@@ -23,7 +23,7 @@
           {{ item.title }}
         </p>
       </div>
-      <img :src="item.imgUrl" alt="" class="w-[16vw] h-[16vw] rounded-[2vw]" />
+      <img :src="item.imgUrl" alt="" class="w-[16vw] h-[16vw] rounded-[2vw] mt-[2vw]" />
     </div>
   </div>
 </template>
