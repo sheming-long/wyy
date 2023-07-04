@@ -31,7 +31,7 @@
     </header>
  
     <!-- 左抽屉 -->
-        <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class="overflow-y: auto; ">
+        <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class=" Drawer">
           <template #header>
             <div class=" pl-[7.5vw]  w-[89vw] flex justify-between items-center  pr-[4vw] mt-[6vw] fixed top-[-7vw] left-[-4vw] z-50 bg-[#ffffff]  dark:bg-gray-900 h-[14vw]">
                 <div class="flex justify-between items-center">
@@ -874,5 +874,16 @@ div::-webkit-scrollbar-thumb {
 .gundong::-webkit-scrollbar-thumb {
   --tw-bg-opacity: 1;
     background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+    
 } */
+
+.Drawer::-webkit-scrollbar {
+  width: 0;
+}
+.Drawer::-webkit-scrollbar-thumb {
+  opacity: 0;
+}
+.Drawer::-webkit-scrollbar-track {
+  opacity: 0;
+}
 </style>
