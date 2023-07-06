@@ -31,16 +31,36 @@
     </header>
  
     <!-- 左抽屉 -->
-        <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class=" Drawer">
+  <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class=" Drawer">
           <template #header>
-            <div class=" pl-[7.5vw]  w-[89vw] flex justify-between items-center  pr-[4vw] mt-[6vw] fixed top-[-7vw] left-[-4vw] z-50 bg-[#ffffff]  dark:bg-gray-900 h-[14vw]">
-                <div class="flex justify-between items-center">
-                   <img class="w-[6.67vw] h-[6.94vw] rounded-[50%] mr-[2.87vw]" src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1" alt="">
-                 <div class="flex items-center">
-                  <span class="text-[black] dark:text-[#ffffff]">麹义</span>
+            <div class=" pl-[7.5vw]  w-[89vw] flex justify-between items-center  pr-[4vw] mt-[6vw] fixed top-[-7vw] left-[-4vw] z-50 bg-[#ffffff]  dark:bg-gray-900 h-[14vw]" 
+            v-if="!(cookie !== undefined && cookie!== null)">
+                <div class="flex justify-between items-center w-[6.67vw] h-[6.94vw] rounded-[50%] bg-[black] ml-[4vw]">
+                   <!-- <img class="w-[6.67vw] h-[6.94vw] rounded-[50%] mr-[2.87vw]" src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1" alt=""> -->
+                </div>
+                <div class="flex items-center w-[20vw] ml-[-37vw]">
+                  <router-link :to="{ path: '/login' }">
+                    <span class="text-[black] dark:text-[#ffffff]">立即登录</span>
+                 </router-link>  
+                 
                    <icon icon="ep:arrow-right-bold"  width="15" class="text-[black] dark:text-[#ffffff]"/>
-                   </div>
-            </div><icon icon="lucide:scan-line"  width="20" class="text-[black] dark:text-[#ffffff]"/></div>   
+                </div>
+            <icon icon="lucide:scan-line"  width="20" class="text-[black] dark:text-[#ffffff]"/>
+          </div>   
+           <div  class=" pl-[7.5vw]  w-[89vw] flex justify-between items-center  pr-[4vw] mt-[6vw] fixed top-[-7vw] left-[-4vw] z-50 bg-[#ffffff]  dark:bg-gray-900 h-[14vw]" 
+           v-else>
+            <div class="flex justify-between items-center w-[6.67vw] h-[6.94vw] rounded-[50%] bg-[black] ml-[4vw]">
+                   <img class="w-[6.67vw] h-[6.94vw] rounded-[50%] mr-[2.87vw]" src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1" alt="">
+                </div>
+                <div class="flex items-center w-[20vw] ml-[-37vw]">
+                 
+                    <span class="text-[black] dark:text-[#ffffff]">麹义</span>
+            
+                 
+                   <icon icon="ep:arrow-right-bold"  width="15" class="text-[black] dark:text-[#ffffff]"/>
+                </div>
+                <icon icon="lucide:scan-line"  width="20" class="text-[black] dark:text-[#ffffff]"/>
+           </div>
       </template>
               <div class="pl-[4vw] pr-[4vw] overflow-hiddenbg-[#ededed] pt-[8vw]  ">
              <!-- 黑胶 -->
@@ -353,8 +373,11 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
                               
                             </div>
                         </div>
-                        <div class="bg-[#ffffff] dark:bg-[#202020]  rounded-xl h-[12vw] w-[77vw] text-center pt-[2vw]">
-                          <p class="text-[#db4353] text-[4vw]">退出登录</p>
+                        <div class="bg-[#ffffff] dark:bg-[#202020]  rounded-xl h-[12vw] w-[77vw] text-center pt-[2vw]" v-if="cookie !== undefined && cookie!== null">
+                          <p class="text-[#db4353] text-[4vw]"  @click="exitLoginPopup">退出登录</p>
+                        </div>
+                        <div  v-else>
+                        
                         </div>
                         
       </div>
@@ -388,7 +411,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
                <div class='w-[32vw] h-[32vw] bg-[#f3f3f3] overflow-hidden relative'>
                 <transition name="abc" v-for="(item, index) in subTitle" :key="item.vls">
                     <div v-if="visiblesss === index" class="absolute top-0 left-0">
-                      <img :src="item.uiElement?.image.imageUrl" alt="" class="w-[32vw] h-[32vw] rounded-[8px] bg-cover">
+                      <img :src="item.uiElement?.image?.imageUrl" alt="" class="w-[32vw] h-[32vw] rounded-[8px] bg-cover">
                      
                       <div class="absolute top-[2vw] right-[2.5vw] font-[800] text-[#fff] flex items-center">
 
@@ -407,7 +430,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
           <div v-for="(item ,index) in subTitle" :key="item.id2" class=" mr-4 relative w-[32vw]" >
             <router-link :to="{ path:`/HomePlaylist/${id[index]}` } " class=" flex relative">
             <img
-                :src="item.uiElement?.image.imageUrl"
+                :src="item.uiElement?.image?.imageUrl"
                 alt=""
                 class="w-[32vw] h-[32vw] rounded-[4vw] z-[30] relative mt-[1vw]"
                 style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);"
@@ -448,8 +471,15 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
         <div>
           <expressDelivery
             class="w-[800vw]"
+            :express="xinges"
+            :Delivery="introduce"
+             v-if="cookie !== undefined && cookie!== null"
+          />
+          <expressDelivery
+            class="w-[800vw]"
             :express="xinge"
             :Delivery="introduce"
+             v-else
           />
         </div>
       </div>
@@ -465,7 +495,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 
         <div class="overflow-auto">
           <div>
-            <ranking class="w-[600vw] pt-[5vw] h-[92vw] " :king="phb" />
+            <ranking class="w-[564vw] pt-[5vw] h-[92vw] " :king="phb" />
           </div>
         </div>
       </div>
@@ -529,6 +559,7 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
 import { Toast } from 'vant';
 import axios from 'axios';
 import Swiper from 'swiper';
+import {fetchUserAccount} from '@/request'
 import BScroll from '@better-scroll/core';
 import ScrollBar from '@better-scroll/scroll-bar';
 import '../../../node_modules/swiper/css/swiper.css';
@@ -538,7 +569,27 @@ import expressDelivery from './components/expressDelivery.vue'; //新歌速递
 import ranking from './components/ranking.vue'; //排行榜
 import calenda from './components/calenda.vue'; //日历
 import trendingTopics from './components/trendingTopics.vue';
+import { Homeblock,Homedragon,Homecal } from '@/request';
+import store from 'storejs';
+import  Dialog from '../../commponent/Dialog/index.js';//调用弹窗
+
 export default {
+
+  async created() {
+    const res = await Homeblock();
+    this.menu = res.data.data.blocks[0].extInfo.banners;
+    this.subTitle = res.data.data.blocks[1].creatives;//推荐歌单
+    this.xinges = res.data.data.blocks[2].creatives;
+    this.xinge = res.data.data.blocks[5].creatives;
+    
+    this.phb = res.data.data.blocks[3].creatives;//排行榜
+    this.changeID();
+    const dragon =await Homedragon();
+    this.menus = dragon.data.data;
+    const cal =await Homecal();
+    this.rili = cal.data.data.calendarEvents;
+    
+  },
   components: {
     ranking,
     indexmenu,
@@ -547,8 +598,10 @@ export default {
     calenda,
     trendingTopics,
   },
+  
   data() {
     return {
+      cookie: store.get('__m__cookie'),
       id:[],
       menus: [],
       visiblesss: 2,
@@ -569,6 +622,7 @@ export default {
       phb: [],
       menu: [],
       subTitle: [],
+      xinges:[],
       xinge: [],
       swiper: null,
     };
@@ -579,6 +633,17 @@ export default {
     });
   },
   methods: {
+    exitLoginPopup() {
+      Dialog({ message: '确定退出当前账号吗？' })
+        .then(() => {
+          console.log('点击了确定');
+          store.remove('__m__cookie'); //删除用户信息
+          this.userData = [];
+          this.$router.push('/login');
+        })
+        .catch(() => {});
+    },
+ 
     changeID(){
             this.id = []
             for(let i=0;i<this.subTitle.length;i++){
@@ -626,33 +691,6 @@ export default {
     fn(e) {
       this.drawerVisible = e;
     },
-    fetchPlaylists(cat) {
-      axios
-        .get(
-          'https://netease-cloud-music-c2c1ys55f-cc-0820.vercel.app/homepage/block/page'
-        )
-        .then((res) => {
-          this.menu = res.data.data.blocks[0].extInfo.banners;
-          this.subTitle = res.data.data.blocks[1].creatives;
-          this.xinge = res.data.data.blocks[5].creatives;
-          this.phb = res.data.data.blocks[3].creatives;
-          this.changeID()
-        });
-      axios
-        .get(
-          'https://netease-cloud-music-api-five-roan-88.vercel.app/homepage/dragon/ball'
-        )
-        .then((res) => {
-          this.menus = res.data.data;
-        });
-      axios
-        .get(
-          'https://netease-cloud-music-api-five-roan-88.vercel.app/calendar?startTime=1677417600000&endTime=1677417600000'
-        )
-        .then((res) => {
-          this.rili = res.data.data.calendarEvents;
-        });
-    },
     showPopup() {
       this.show = true;
     },
@@ -677,19 +715,19 @@ export default {
     });
   },
   beforeDestroy() {},
-  created() {
-    // Vue组件的生命周期钩子函数，实例创建完成后自动调用
-    axios
-      .get(
-        'https://netease-cloud-music-c2c1ys55f-cc-0820.vercel.app/homepage/block/page'
-      )
-      .then(() => {
-        this.fetchPlaylists();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },
+  // created() {
+  //   // Vue组件的生命周期钩子函数，实例创建完成后自动调用
+  //   axios
+  //     .get(
+  //       'https://netease-cloud-music-c2c1ys55f-cc-0820.vercel.app/homepage/block/page'
+  //     )
+  //     .then(() => {
+        
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // },
 };
 </script>
 

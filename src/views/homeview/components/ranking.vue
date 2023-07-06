@@ -7,7 +7,7 @@
               :key="item.king"
             >
               <p style="margin-top: 3vw; padding: 0 3vw" class=" text-[5vw] font-bold text-[#4a4c51] dark:text-[#dededf]">
-                霸歌榜
+                {{item.uiElement.mainTitle.title}}
                 <icon
                   icon="ant-design:right-outlined"
                   class="w-[6vw] h-[6vw] inline-block mt-[-1vw]"

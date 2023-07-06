@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import Dialog from './Dialog.vue';
-console.log(Dialog);
+import Vue from "vue";
+import Dialog from "./Dialog.vue";
+
 // 创建一个Dialog的vue子类
 export default function (option) {
   return new Promise(function (resolve, reject) {
@@ -10,17 +10,12 @@ export default function (option) {
         return {
           title: option.title,
           message: option.message,
-          visible: false,
-        };
+          visible: true,
+        }
       },
-      methods: { resolve, reject },
+      methods: { resolve, reject }
     });
     instanceOfDialog.$mount();
     document.querySelector('body').appendChild(instanceOfDialog.$el);
-  });
+  })
 }
-// console.log(instanceOfDialog);
-// Dialog.install = function (V) {
-//   V.component(this.name, this);
-// };
-// export default Dialog;

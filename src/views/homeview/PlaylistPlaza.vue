@@ -2,7 +2,7 @@
   <div class="bg-[#f7fafc] pl-[4vw] pr-[4vw]">
     <header>
       <div
-        class="flex relative"
+        class="flex relative mt-[3vw]"
         style="justify-content: space-around; align-items: center"
       >
         <router-link :to="{ path: '/HomeView' }">
