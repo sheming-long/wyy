@@ -7,9 +7,9 @@
       >
         <router-link :to="{ path: '/HomeView' }">
           <Icon
-            icon="ph:arrow-left-thin"
-            style="font-size: 7.5vw"
-            class="font-bold"
+            icon="ri:arrow-left-line"
+            style="font-size:7vw"
+            class="font-600"
           />
         </router-link>
         <input
@@ -17,18 +17,18 @@
           name=""
           id=""
           placeholder="大家都在搜　向云端"
-          class="rounded-3xl h-[30px] pl-2 bg-gradient-to-r from-[#dddbfb] to-pink-50 w-[80%]"
+          class="rounded-3xl h-[9vw] pl-2 bg-gradient-to-r from-[#dddbfb] to-pink-50 w-[80%] text-[#a8abab]"
           style="border: 1px solid #ccc; text-indent: 2em"
         />
         <Icon
           icon="ic:sharp-search"
-          class="absolute"
-          style="left: 12vw; top: 2vw"
+          class="absolute text-[#a8abab]"
+          style="left: 12vw; top: 3vw"
         />
         <button class="text-[16px] ml-[10px]">搜索</button>
       </div>
       <div class="flex justify-around my-5">
-        <p class="flex items-center">
+        <p class="flex items-center font-[600]">
           <Icon
             icon="streamline:interface-user-single-close-geometric-human-person-single-up-user"
             color="red"
@@ -38,7 +38,7 @@
           歌手
         </p>
         <p style="color: #ccc">|</p>
-        <p class="flex items-center">
+        <p class="flex items-center font-[600]">
           <Icon
             icon="material-symbols:genres"
             color="red"
@@ -48,26 +48,26 @@
           曲风
         </p>
         <p style="color: #ccc">|</p>
-        <p class="flex items-center">
+        <p class="flex items-center font-[600]">
           <Icon icon="entypo:note" color="red" style="margin-right: 5px">
           </Icon>
           专区
         </p>
         <p style="color: #ccc">|</p>
-        <p class="flex items-center">
+        <p class="flex items-center font-[600]">
           <Icon icon="typcn:microphone" color="red" style="margin-right: 5px">
           </Icon>
           识曲
         </p>
       </div>
       <div class="my-5">
-        <p class="flex items-center justify-between">
+        <p class="flex items-center justify-between font-[600]">
           搜索历史
           <Icon icon="bi:trash" class="text-[#bfc2c4]"> </Icon>
         </p>
         <div class="flex mt-[3vw]">
           <p
-            class="h-[8vw] rounded-[4vw] bg-[#ffffff]"
+            class="h-[8vw] rounded-[4vw] bg-[#ffffff] text-[#505352]"
             style="line-height: 8vw; text-align: center"
           >
             &nbsp;&nbsp;音乐日历&nbsp;&nbsp;
@@ -75,17 +75,18 @@
         </div>
       </div>
       <div class="my-5">
-        <p class="flex items-center justify-between pl">
+        <p class="flex items-center justify-between pl font-[600]">
           猜你喜欢
           <button @click="randomItem">
             <Icon icon="iconoir:refresh" class="text-[#bfc2c4]"></Icon>
           </button>
         </p>
-        <div class="flex mt-[3vw]">
+        <div class="flex mt-[3vw]" style="flex-wrap: wrap;
+    justify-content: space-between;">
           <p
             v-for="item in randomItems"
             :key="item.id"
-            class="h-[8vw] rounded-[4vw] bg-[#ffffff]"
+            class="h-[8vw] rounded-[4vw] bg-[#ffffff] text-[#505352]"
             style="line-height: 8vw; text-align: center"
           >
             &nbsp; &nbsp;{{ item.searchWord }} &nbsp; &nbsp;
@@ -108,12 +109,12 @@
     <ul>
         <li class="h-[10vw]" v-for="(main, indexs) in item.tracks.slice(0, 20)" :key="main.id">
             <p
-                class="font-[4vw] overflow-hidden overflow-ellipsis whitespace-nowrap"
-                :class="{ 'font-[700]': indexs < 3 } "
+                class="text-[4vw] overflow-hidden overflow-ellipsis whitespace-nowrap"
+                :class="{ 'font-[600]': indexs < 3 } "
                 style="line-height: 10vw"
             >
                 <span
-                    class="mr-[5vw] font-[700]"
+                    class="mr-[5vw] font-[600]"
                     :class="{
                         'text-[red]': indexs < 3,
                         'text-[#a3a3a3]': indexs >= 3,

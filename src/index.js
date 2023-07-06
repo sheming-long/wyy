@@ -7,7 +7,9 @@ import router from '@/router/index';
 import Switch from './commponent/Switch.vue';
 Vue.component('v-switch', Switch);
 
-
+// 引入dialog
+import  Dialog  from './commponent/Dialog';
+Vue.use(Dialog);
 //引入vant
 import Vant from 'vant';
 import { ActionSheet } from 'vant';
@@ -20,13 +22,11 @@ Vue.use(Popup);
 Vue.component('Icon', Icon);
 Vue.component('Drawer', Drawer);
 Vue.use(Vant);
-const vm = new Vue({
-
-  el: '#app', // 挂载节点
-  components: { App },
-  template: '<App />',
-  // render:(h)=>h(App)
+const app = new Vue({
+  el: '#app',
   router,
+  components: { App },
+  template: '<App/>',
 });
 
 

@@ -374,14 +374,14 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
     </div>
 
     <!-- 轮播2 -->
-    <div class="mt-[5vw]">
+    <div class="mt-[5vw]" >
 		<p class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]">
 			推荐歌单
 			<Icon icon="ep:arrow-right-bold" width="20" />
       <button is-link @click="showPopup() ,int='推荐歌单'"   >	<Icon icon="teenyicons:more-vertical-outline"  class=" ml-[60vw] h-[4vw]" /></button>
 		
 		</p>
-  <div class=" overflow-auto">
+  <div class=" overflow-auto" :id="id">
       <div class="w-[253vw] flex h-[45vw]">
         <div class='pt-[1vw] relative w-[32vw] mr-4'>
             <div class='w-[32vw] relative z-[1]'>
@@ -403,15 +403,16 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
             <div class='w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0] dark:bg-[#25272f]'></div>
          </div>
        
-
-         <div v-for="(item) in subTitle" :key="item.id2" class=" mr-4 relative w-[32vw]">
-					 <img
+        
+          <div v-for="(item ,index) in subTitle" :key="item.id2" class=" mr-4 relative w-[32vw]" >
+            <router-link :to="{ path:`/HomePlaylist/${id[index]}` } " class=" flex relative">
+            <img
                 :src="item.uiElement?.image.imageUrl"
                 alt=""
                 class="w-[32vw] h-[32vw] rounded-[4vw] z-[30] relative mt-[1vw]"
                 style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);"
               />
-              <p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw]  text-[#4d505e] mt-[1vw] dark:text-[#dededf]">
+              <p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw]  text-[#4d505e] mt-[1vw] dark:text-[#dededf] " style="top: 33vw;">
                 {{ item.uiElement?.mainTitle.title }}
               </p>
               <div class="absolute top-[2vw] right-[3vw] font-[600] text-[#fff] flex items-center z-[35]">
@@ -425,49 +426,15 @@ background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 1
                   )
                 }}万</span>
                       </div>
-                <div class='w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0] dark:bg-[#25272f]'></div>
+               
+                      <div class='w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0] dark:bg-[#25272f]'></div>
+                    </router-link>
 					</div>
+      
+        
       </div>
   </div>
-		<!-- <ul class="overflow-hidden h-[40vw]">
-			<div class="swiper-container2 h-[100%] w-[33%]">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide mr-4"  >
-						<div class="w-[32vw] h-[40vw] overflow-hidden relative">
-							<transition name="abc">
-								<div v-if="visibles" class=" absolute top-0 left-0">
-									<img alt=""
-										src="http://p2.music.126.net/XsTsiy7w_IAtqLIc6kMRAg==/109951168690739808.jpg"
-                     class="w-[32vw] h-[32vw] rounded-[4vw]" />
-									<p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] font-[700]">
-										那些好听的日漫主题曲
-									</p>
-									<p class="absolute" style="top: 10px; right: 10px; color: white">
-										<Icon icon="ion:infinite" width="20" />
-									</p>
-								</div>
-							</transition>
-							<transition name="abc">
-								<div v-if="!visibles" class=" absolute top-0 left-0">
-									<img alt="" src="http://p1.music.126.net/yfPmJYEpSgEMG_y5u0MtIA==/109951168649207060.jpg"
-									  class="w-[32vw] h-[32vw] rounded-[4vw]" />
-									<p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] font-[700]">
-										评论数最多的动漫音乐TOP100（长期更新）
-									</p>
-									<p class="absolute" style="top: 10px; right: 10px; color: white">
-										<Icon icon="ion:infinite" width="20" />
-									</p>
-								</div>
-							</transition>
-              
-						</div>
-       
-					</div>
-
-			     
-				</div>
-			</div>
-		</ul> -->
+	
 	</div>
     <!-- 新歌速递 -->
     <div class="mt-[5vw]">
@@ -582,6 +549,7 @@ export default {
   },
   data() {
     return {
+      id:[],
       menus: [],
       visiblesss: 2,
       resourceData: '',
@@ -602,50 +570,6 @@ export default {
       menu: [],
       subTitle: [],
       xinge: [],
-
-      text: {
-        one: [
-          ['mdi:email-outline', '我的消息'],
-          ['iconamoon:cloud-thin', '云贝中心'],
-          ['humbleicons:bulb', '创作者中心'],
-        ],
-        two: [
-          [
-            'streamline:religion-hexagram-star-jew-jewish-judaism-hexagram-culture-religion-david',
-            '趣测',
-          ],
-          ['ion:ticket-outline', '云村有票'],
-          ['teenyicons:box-outline', '多多西西口袋'],
-          ['material-symbols:local-mall-outline-rounded', '商城'],
-          ['simple-icons:beats', 'Beat专区'],
-          ['ri:bell-line', '口袋彩铃'],
-          ['icon-park-outline:game-three', '游戏专区'],
-        ],
-        three: [
-          ['arcticons:set-edit', '设置'],
-          ['circum:dark', '深色模式'],
-          ['ri:time-line', '定时关闭'],
-          ['icon-park-outline:clothes-crew-neck', '个性装扮'],
-          ['ic:twotone-headset', '边听边存'],
-          ['icon-park-outline:online-meeting', '在线听歌免流量'],
-          ['arcticons:callsblacklist', '音乐黑名单'],
-          ['el:ok-circle', '青少年模式'],
-          ['iconoir:clock', '音乐闹钟'],
-        ],
-        four: [
-          ['icon-park-outline:transaction-order', '我的订单'],
-          ['mdi:coupon-outline', '优惠券'],
-          ['mdi:customer-service', '我的客服'],
-          ['ph:share-fill', '分享网易云音乐'],
-          [
-            'streamline:interface-file-clipboard-text-edition-form-task-checklist-edit-clipboard',
-            '个人信息收集与使用清单',
-          ],
-          ['uiw:information-o', '个人信息第三方共享清单'],
-          ['uiw:information-o', '个人信息与隐私保护'],
-          ['uiw:information-o', '关于'],
-        ],
-      },
       swiper: null,
     };
   },
@@ -655,6 +579,12 @@ export default {
     });
   },
   methods: {
+    changeID(){
+            this.id = []
+            for(let i=0;i<this.subTitle.length;i++){
+                this.id.push(parseInt(this.subTitle[i].creativeId))
+            }
+        },
     animateItems() {
       setInterval(() => {
         this.visiblesss++;
@@ -663,7 +593,7 @@ export default {
         }
         if (this.visiblesss < 6) {
           this.resourceData =
-            this.subTitle[this.visiblesss].uiElement.mainTitle.title;
+            this.subTitle[this.visiblesss]?.uiElement?.mainTitle.title;
         }
       }, 5000);
     },
@@ -706,6 +636,7 @@ export default {
           this.subTitle = res.data.data.blocks[1].creatives;
           this.xinge = res.data.data.blocks[5].creatives;
           this.phb = res.data.data.blocks[3].creatives;
+          this.changeID()
         });
       axios
         .get(
