@@ -9,7 +9,7 @@ Vue.component('v-switch', Switch);
 
 // 引入dialog
 import  Dialog  from './commponent/Dialog';
-Vue.use(Dialog);
+// Vue.use(Dialog);
 //引入vant
 import Vant from 'vant';
 import { ActionSheet } from 'vant';

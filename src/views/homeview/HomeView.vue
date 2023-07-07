@@ -634,7 +634,9 @@ export default {
   },
   methods: {
     exitLoginPopup() {
-      Dialog({ message: '确定退出当前账号吗？' })
+      Dialog({ message: '确定退出当前账号吗？' },
+             { visible :true }
+      )
         .then(() => {
           console.log('点击了确定');
           store.remove('__m__cookie'); //删除用户信息
