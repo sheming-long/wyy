@@ -44,7 +44,7 @@
       </div>
     </div>
     <img
-      src="/static/bg-login.png"
+      src="/static/denlu.jpg"
       alt=""
       class="fixed bottom-0 left-0 w-screen"
     />

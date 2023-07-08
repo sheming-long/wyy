@@ -2,30 +2,39 @@
   <div class="bg-[#f7fafc] pl-[4vw] pr-[4vw]">
     <header>
       <div
-        class="flex relative mt-[3vw]"
-        style="justify-content: space-around; align-items: center"
+        class="w-[100%] flex justify-between items-center fixed top-0 right-0 bg-[#f7f9fe] dark:bg-[#1a1c23] z-[900] px-[4vw] py-[2vw]"
       >
-        <router-link :to="{ path: '/HomeView' }">
-          <Icon
-            icon="ri:arrow-left-line"
-            style="font-size:7vw"
-            class="font-600"
-          />
-        </router-link>
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="大家都在搜　向云端"
-          class="rounded-3xl h-[9vw] pl-2 bg-gradient-to-r from-[#dddbfb] to-pink-50 w-[80%] text-[#a8abab]"
-          style="border: 1px solid #ccc; text-indent: 2em"
-        />
+        <!-- 返回图标 -->
         <Icon
-          icon="ic:sharp-search"
-          class="absolute text-[#a8abab]"
-          style="left: 12vw; top: 3vw"
+          icon="ph:arrow-left-light"
+          width="8vw"
+          class="text-[#000] dark:text-[#e9e9e9]"
+          @click.native="home"
         />
-        <button class="text-[16px] ml-[10px]">搜索</button>
+        <!-- 搜索框 -->
+        <div class="relative px-[3vw] flex-1 w-[80vw]">
+          <label for="" class="">
+            <router-link :to="{ path: '/Searchpage' }">
+            <input
+              type="text"
+              placeholder="大家都在搜   向云端"
+             
+              class="text-[#000]  bg-gradient-to-r from-[#dddbfb] to-pink-50 dark:text-[#fff] placeholder-[#c4c4c4] dark:placeholder-[#575960] dark:bg-[#31333a] text-[4vw] pl-[8vw] bg-white opacity-0.2 w-[100%] h-[10vw] border-2 border-[#fff] rounded-[25px] dark:border-2 dark:border-[#31333a]"
+            />
+            </router-link >
+          </label>
+          <Icon
+            icon="iconoir:search"
+            class="text-[5vw] absolute top-[2.4vw] left-[5vw] text-[#9a9a9a] dark:text-[#e9e9e9]"
+          />
+        </div>
+  
+        <div
+          class="font-semibold text-[4vw] dark:text-[#e9e9e9] text-[#283349]"
+        
+        >
+          搜索
+        </div>
       </div>
       <div class="flex justify-around my-5">
         <p class="flex items-center font-[600]">
@@ -176,6 +185,9 @@ export default {
   },
 
   methods: {
+    home() {
+        this.$router.push('/HomeView');
+      },
     fetchPlaylists(cat) {
       axios
         .get(

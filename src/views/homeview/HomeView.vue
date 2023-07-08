@@ -1,594 +1,1176 @@
 <template  >
-  
   <div :class="{ dark: switchCheckStatus }">
-   
-  <div class="w-[100vw] pl-[2.5vw] pr-[2.5vw]  overflow-hidden pb-[5vw] bg-[#f7f9fe]  dark:bg-gray-900 dark:text-[#fff] dark:gundong "  @click="updateOverflow"  >
-   
-    <header class=" h-[9vw] w-[100vw] top-0 z-30   ml-[-2.5vw] mt-[3vw]" >
-      <button @click="drawerVisible = !drawerVisible, updateOverflow"  class="w-[9vw] h-[9vw] float-left" > <icon icon="prime:bars" class="w-[9vw] h-[9vw] float-left"  /></button>
-    <!-- <Drawer :visible="drawerVisible" @自定义事件="(e) => (drawerVisible = e)"> -->
-      <router-link :to="{ path: '/PlaylistPlaza' }">
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="大家都在搜　向云端"
-          class="rounded-3xl h-[9vw] pl-2 bg-gradient-to-r from-[#dddbfb] to-pink-50 w-[80%]"
-          style="border: 1px solid #ccc; text-indent: 2em"
-        />
-        <Icon
-          icon="ic:sharp-search"
-          class="absolute"
-          style="left: 12vw; top: 5.5vw"
-        />
-        <Icon icon="lucide:scan"  class=" absolute"  style="left: 82vw; top: 5.5vw"/>
-        
-    </router-link>
-      <icon
-        icon="bytesize:microphone"
-        class="w-[9vw] h-[9vw] float-right inline-block"
-      />
-    </header>
- 
-    <!-- 左抽屉 -->
-  <Drawer :visible.sync="drawerVisible" direction="ltr"  @自定义事件="(e) => (drawerVisible = e) " class=" Drawer">
-          <template #header>
-            <div class=" pl-[7.5vw]  w-[89vw] flex justify-between items-center  pr-[4vw] mt-[6vw] fixed top-[-7vw] left-[-4vw] z-50 bg-[#ffffff]  dark:bg-gray-900 h-[14vw]" 
-            v-if="!(cookie !== undefined && cookie!== null)">
-                <div class="flex justify-between items-center w-[6.67vw] h-[6.94vw] rounded-[50%] bg-[black] ml-[4vw]">
-                   <!-- <img class="w-[6.67vw] h-[6.94vw] rounded-[50%] mr-[2.87vw]" src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1" alt=""> -->
-                </div>
-                <div class="flex items-center w-[20vw] ml-[-37vw]">
-                  <router-link :to="{ path: '/login' }">
-                    <span class="text-[black] dark:text-[#ffffff]">立即登录</span>
-                 </router-link>  
-                 
-                   <icon icon="ep:arrow-right-bold"  width="15" class="text-[black] dark:text-[#ffffff]"/>
-                </div>
-            <icon icon="lucide:scan-line"  width="20" class="text-[black] dark:text-[#ffffff]"/>
-          </div>   
-           <div  class=" pl-[7.5vw]  w-[89vw] flex justify-between items-center  pr-[4vw] mt-[6vw] fixed top-[-7vw] left-[-4vw] z-50 bg-[#ffffff]  dark:bg-gray-900 h-[14vw]" 
-           v-else>
-            <div class="flex justify-between items-center w-[6.67vw] h-[6.94vw] rounded-[50%] bg-[black] ml-[4vw]">
-                   <img class="w-[6.67vw] h-[6.94vw] rounded-[50%] mr-[2.87vw]" src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1" alt="">
-                </div>
-                <div class="flex items-center w-[20vw] ml-[-37vw]">
-                 
-                    <span class="text-[black] dark:text-[#ffffff]">麹义</span>
-            
-                 
-                   <icon icon="ep:arrow-right-bold"  width="15" class="text-[black] dark:text-[#ffffff]"/>
-                </div>
-                <icon icon="lucide:scan-line"  width="20" class="text-[black] dark:text-[#ffffff]"/>
-           </div>
-      </template>
-              <div class="pl-[4vw] pr-[4vw] overflow-hiddenbg-[#ededed] pt-[8vw]  ">
-             <!-- 黑胶 -->
-             <div class="  rounded-[4vw] w-[72vw] h-[30vw] pt-[2vw] ml-[2.5vw] mt-[5vw] pl-[1vw]" style="background: rgb(60,58,56);
-background: linear-gradient(90deg, rgba(60,58,56,1) 0%, rgba(95,81,78,1) 100%);">
-                   <p class="h-[6vw] text-[#f9e7de] font-[700] text-[4vw] ml-[1vw]" style="text-indent:1em ;">续费黑胶Vip <span class="h-[2vw] w-[10vw] rounded-[1vw] bg-[#000000] inline-block relative ml-[2vw]">
-                    <span class="h-[2vw] w-[7vw] rounded-[1vw] bg-[balck] inline-block absolute left-0" style="background: rgb(227,195,191);
-background: linear-gradient(90deg, rgba(227,195,191,1) 0%, rgba(255,255,255,1) 100%);"></span>
-                    </span>
-                    <span  class="h-[2vw] w-[10vw] rounded-[1vw] inline-block text-[#7b706f]">4v</span>
-                    <span class=" h-[6vw]  border-[0.5vw ]  rounded-[3vw] text-[2vw] inline-block" style=" border: #aa9793 solid 0.25vw; line-height:6vw ; text-align: center; text-indent:0;">&nbsp;&nbsp;会员中心&nbsp;</span>
-                    </p>
-                <div>
-                  <p class="  text-[3vw] text-[#9a958d] ml-[6vw] mt-[3vw]">礼品卡&nbsp;&nbsp;|&nbsp;&nbsp;毕业快乐</p>
-               </div>
-
-               <div class="text-[3vw] text-[#9a958d]  ml-[5vw] mt-[3vw] h-[11vw] w-[60vw] relative " style="border-top: 1px solid #aa9793; line-height:11vw ">
-                  受邀专享,黑胶vip低至0.27元/天!
-
-                  <div class="h-[8vw] w-[8vw] bg-[#d94e0e] rounded-[1vw] text-[2vw] text-[#fff8dc] font-[700] " style="line-height:0vw ;display: flex;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-around;
-    position: absolute;
-    left: 52vw;
-    top: 1vw;">
-                   <span>受邀</span> 
-                   <span>专享</span> 
-                  </div>
-               </div>
-               </div>
-                <div class="mb-[4.17vw] bg-[#ffffff] dark:bg-[#202020] rounded-xl px-[4.26vw] mt-[4.17vw]">
-                            <div class="h-[12.69vw] border-[#f3f3f3] border-b-[1px] dark:border-[#373737] flex justify-between items-center">
-                                <div class="flex items-center">
-                                    <Icon class="text-[black]  dark:text-[white]" icon="solar:letter-linear" width="15"/>
-                                    <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">消息中心</p>
-                                </div>
-                                <icon icon="ep:arrow-right-bold" color="white" width="15" />
-                            </div>
-                            <div class="h-[12.69vw] border-[#f3f3f3] border-b-[1px] dark:border-[#373737]  flex justify-between items-center">
-                                <div class="flex items-center">
-                                    <Icon class="text-[black]  dark:text-[white]" icon="simple-icons:shell"  width="15"/>
-                                    <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">云贝中心</p>
-                                </div>
-                                <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="white" width="15" />
-                            </div>
-                            <div class="h-[12.69vw] flex justify-between items-center">
-                                <div class="flex items-center">
-                                    <Icon  class="text-[black]  dark:text-[white]" icon="streamline:interface-lighting-light-bulb-on-lighting-light-shine-incandescent-bulb-lights" width="15" />
-                                    <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">创作者中心</p>
-                                </div>
-                                <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="white" width="15" />
-                            </div>
-                        </div>
-                        <!-- 音乐服务 -->
-                        <div class="mb-[4.17vw] bg-[#ffffff] dark:bg-[#202020] rounded-xl  pr-[4vw]">
-                            <div class="h-[10vw] pl-[4.26vw] border-[#f3f3f3] border-b-[1px] dark:border-[#373737] text-[#ccc] leading-[10vw] w-[77vw] text-[3.5vw]">音乐服务</div>      
-                            <div class="px-[4.26vw]">
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="emojione-monotone:dotted-six-pointed-star" width="15"/>
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">趣测</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class=" text-[0.8vw] mr-[2.78vw] text-[#8f8f8f] dark:text-[#9c9c9c]">点击查看今日运势</span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="white" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="emojione-monotone:admission-tickets" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">云村有票</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="system-uicons:cube" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">多多西西口袋</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="solar:bag-4-outline" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">商城</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="streamline:interface-signal-square-heart-line-stats-beat-square-graph" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">Beat专区</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw] ">顶尖制作邀你创作</span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="ri:bell-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">口袋彩铃</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="mingcute:game-2-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">游戏专区</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw] ">音乐浇潘治愈花园</span>
-                                        <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 其他 -->
-                          <div class="mb-[4.17vw] bg-[#ffffff] dark:bg-[#202020] rounded-xl">
-                            <div class="h-[10vw] pl-[4.26vw] border-[#f3f3f3] border-b-[1px] dark:border-[#373737]  text-[#ccc] leading-[10vw] text-[3.5vw]">其他</div>      
-                            <div class="px-[4.26vw]">
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="icon-park-outline:setting-one" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">设置</p>
-                                    </div>
-                                    <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="emojione-monotone:admission-tickets" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">浅色模式</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <v-switch v-model="switchCheckStatus" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="system-uicons:cube" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">定时关闭</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="solar:bag-4-outline" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">个性装扮</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="streamline:interface-signal-square-heart-line-stats-beat-square-graph" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">边听边存</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw] ">在线听歌免流量</span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="ri:bell-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">添加Siri捷径</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="mingcute:game-2-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">音乐黑名单</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                    
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="mingcute:game-2-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">青少年模式</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw] ">未开启</span>
-                                        <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                    
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="mingcute:game-2-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">音乐闹钟</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        <div class="mb-[4.17vw] bg-[#ffffff] dark:bg-[#202020] rounded-xl">
-                            <div class="px-[4.26vw]">
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="icon-park-outline:setting-one" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">我的客服</p>
-                                    </div>
-                                    <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="emojione-monotone:admission-tickets" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">我的订单</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon class="text-[black]  dark:text-[white]" icon="system-uicons:cube" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">优惠券</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="solar:bag-4-outline" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">分享网易云音乐</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="streamline:interface-signal-square-heart-line-stats-beat-square-graph" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">边听边存</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw] ">个人信息</span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="ri:bell-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">个人信息第三方共享清单</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[black]  dark:text-[white] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon  class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="mingcute:game-2-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">个人与隐私保护</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[#ccc] text-[2.6vw] mr-[2.78vw]"></span>
-                                        <icon class="text-[black]  dark:text-[white]" icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                    
-                                </div>
-                                <div class="h-[12.69vw] flex justify-between items-center">
-                                    <div class="flex items-center">
-                                        <Icon  class="text-[black]  dark:text-[white]" icon="mingcute:game-2-line" width="15" />
-                                        <p class="ml-[3vw] text-[black]  dark:text-[white] text-[3.5vw]">关于</p>
-                                    </div>
-                                    <div class="flex">
-                                        <span class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw] ">未开启</span>
-                                        <icon  class="text-[black]  dark:text-[white]"  icon="ep:arrow-right-bold" color="#ccc" width="15" />
-                                    </div>
-                                    
-                                </div>
-                              
-                            </div>
-                        </div>
-                        <div class="bg-[#ffffff] dark:bg-[#202020]  rounded-xl h-[12vw] w-[77vw] text-center pt-[2vw]" v-if="cookie !== undefined && cookie!== null">
-                          <p class="text-[#db4353] text-[4vw]"  @click="exitLoginPopup">退出登录</p>
-                        </div>
-                        <div  v-else>
-                        
-                        </div>
-                        
-      </div>
-  </Drawer>
-    <!-- 轮播1 -->
-    <van-swipe :autoplay="3000" lazy-render class="w-[95vw] h-[35vw] mt-[5vw]">
-      <van-swipe-item v-for="item in menu" :key="item.id">
-        <img :src="item.pic" class="" />
-      </van-swipe-item>
-    </van-swipe>
-
-    <!-- 菜单 -->
-    <div class="overflow-auto dark:gundong">
-      <div>
-        <indexmenu class="flex justify-between mt-4 w-[200vw]" :menu="menus" />
-      </div>
-    </div>
-
-    <!-- 轮播2 -->
-    <div class="mt-[5vw]" >
-		<p class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]">
-			推荐歌单
-			<Icon icon="ep:arrow-right-bold" width="20" />
-      <button is-link @click="showPopup() ,int='推荐歌单'"   >	<Icon icon="teenyicons:more-vertical-outline"  class=" ml-[60vw] h-[4vw]" /></button>
-		
-		</p>
-  <div class=" overflow-auto" :id="id">
-      <div class="w-[253vw] flex h-[45vw]">
-        <div class='pt-[1vw] relative w-[32vw] mr-4'>
-            <div class='w-[32vw] relative z-[1]'>
-               <div class='w-[32vw] h-[32vw] bg-[#f3f3f3] overflow-hidden relative'>
-                <transition name="abc" v-for="(item, index) in subTitle" :key="item.vls">
-                    <div v-if="visiblesss === index" class="absolute top-0 left-0">
-                      <img :src="item.uiElement?.image?.imageUrl" alt="" class="w-[32vw] h-[32vw] rounded-[8px] bg-cover">
-                     
-                      <div class="absolute top-[2vw] right-[2.5vw] font-[800] text-[#fff] flex items-center">
-
-                        <Icon icon="jam:infinite" class="w-[8vw] h-[5vw] "/>
-                  
-                      </div>
-                    </div>
-                </transition>
-               </div>
-               <p class=' text-[#4d505e]  absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] mt-[1vw] dark:text-[#dededf]'> {{ resourceData || (subTitle[0]?.uiElement?.mainTitle.title) }}</p>
-            </div>
-            <div class='w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0] dark:bg-[#25272f]'></div>
-         </div>
-       
-        
-          <div v-for="(item ,index) in subTitle" :key="item.id2" class=" mr-4 relative w-[32vw]" >
-            <router-link :to="{ path:`/HomePlaylist/${id[index]}` } " class=" flex relative">
-            <img
-                :src="item.uiElement?.image?.imageUrl"
-                alt=""
-                class="w-[32vw] h-[32vw] rounded-[4vw] z-[30] relative mt-[1vw]"
-                style=" box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);"
+    <div
+      class="w-[100vw] pl-[2.5vw] pr-[2.5vw] overflow-hidden pb-[5vw] bg-[#f7f9fe] dark:bg-gray-900 dark:text-[#fff] dark:gundong"
+      @click="updateOverflow"
+    >
+      <header class="h-[9vw] w-[100vw] top-0 z-30 ml-[-2.5vw] mt-[3vw]">
+        <div
+          class="w-[100%] flex justify-between items-center fixed top-0 right-0 bg-[#f7f9fe] dark:bg-[#1a1c23] z-[900] px-[4vw] py-[2vw]"
+        >
+          <!-- 返回图标 -->
+          <button
+            @click="(drawerVisible = !drawerVisible), updateOverflow"
+            class=" float-left mr-0"
+          >
+            <Icon
+              icon="prime:bars"
+              width="8vw"
+              class="text-[#000] dark:text-[#e9e9e9]"
+              style="margin:0;padding:0"
+            />
+          </button>
+          <!-- 搜索框 -->
+          <router-link :to="{ path: '/PlaylistPlaza' }">
+          <div class="relative px-[3vw] flex-1 w-[75vw]">
+            <label for="" class="">
+              <input
+                type="text"
+                placeholder="大家都在搜   向云端"
+                class="text-[#000] bg-gradient-to-r from-[#dddbfb] to-pink-50 dark:text-[#fff] placeholder-[#c4c4c4] dark:placeholder-[#575960] dark:bg-[#31333a] text-[4vw] pl-[8vw] bg-white opacity-0.2 w-[100%] h-[10vw] border-2 border-[#fff] rounded-[25px] dark:border-2 dark:border-[#31333a]"
               />
-              <p class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw]  text-[#4d505e] mt-[1vw] dark:text-[#dededf] " style="top: 33vw;">
-                {{ item.uiElement?.mainTitle.title }}
-              </p>
-              <div class="absolute top-[2vw] right-[3vw] font-[600] text-[#fff] flex items-center z-[35]">
-                        <span class=" text-[#ffffff] whitespace-nowrap text-right"><icon
-                        icon="solar:play-bold"
-                        class="float-left w-[4vw] h-[3vw] text-[#ffffff] mt-[0.8vw] pr-[1vw] "
-                />
-                {{
-                  Math.floor(
-                    item.resources[0].resourceExtInfo.playCount / 10000
-                  )
-                }}万</span>
-                      </div>
-               
-                      <div class='w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0] dark:bg-[#25272f]'></div>
-                    </router-link>
-					</div>
-      
-        
-      </div>
-  </div>
-	
-	</div>
-    <!-- 新歌速递 -->
-    <div class="mt-[5vw]">
-      <p class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]">
-			新歌速递
-			<Icon icon="ep:arrow-right-bold" width="20" />
-      <button is-link @click="showPopup() ,int='新歌速递'"   >	<Icon icon="teenyicons:more-vertical-outline" class=" ml-[60vw] h-[4vw]" /></button>
-		</p>
+            </label>
+            <Icon
+              icon="iconoir:search"
+              class="text-[5vw] absolute top-[2.4vw] left-[5vw] text-[#9a9a9a] dark:text-[#e9e9e9]"
+            />
+          </div>
+        </router-link>
+          <div
+            class="font-semibold text-[4vw] dark:text-[#e9e9e9] text-[#283349]"
+          >
+            搜索
+          </div>
+        </div>
+      </header>
 
-      <div class="overflow-auto mt-[5vw] dark:bg-gray-900 dark:text-[#fff]">
+      <!-- 左抽屉 -->
+      <Drawer
+        :visible.sync="drawerVisible"
+        direction="ltr"
+        @自定义事件="(e) => (drawerVisible = e)"
+        class="Drawer"
+      >
+        <template #header>
+          <div
+            class="pl-[7.5vw] w-[89vw] flex justify-between items-center pr-[4vw] mt-[6vw] fixed top-[-7vw] left-[-4vw] z-50 bg-[#ffffff] dark:bg-gray-900 h-[14vw]"
+            v-if="!(cookie !== undefined && cookie !== null)"
+          >
+            <div
+              class="flex justify-between items-center w-[6.67vw] h-[6.94vw] rounded-[50%] bg-[black] ml-[4vw]"
+            >
+              <!-- <img class="w-[6.67vw] h-[6.94vw] rounded-[50%] mr-[2.87vw]" src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1" alt=""> -->
+            </div>
+            <div class="flex items-center w-[20vw] ml-[-37vw]">
+              <router-link :to="{ path: '/login' }">
+                <span
+                  class="text-[black] dark:text-[#ffffff]"
+                  @click="bianhuandong"
+                  >立即登录</span
+                >
+              </router-link>
+
+              <icon
+                icon="ep:arrow-right-bold"
+                width="15"
+                class="text-[black] dark:text-[#ffffff]"
+              />
+            </div>
+            <icon
+              icon="lucide:scan-line"
+              width="20"
+              class="text-[black] dark:text-[#ffffff]"
+            />
+          </div>
+          <div
+            class="pl-[7.5vw] w-[89vw] flex justify-between items-center pr-[4vw] mt-[6vw] fixed top-[-7vw] left-[-4vw] z-50 bg-[#ffffff] dark:bg-gray-900 h-[14vw]"
+            v-else
+          >
+            <div
+              class="flex justify-between items-center w-[6.67vw] h-[6.94vw] rounded-[50%] bg-[black] ml-[4vw]"
+            >
+              <img
+                class="w-[6.67vw] h-[6.94vw] rounded-[50%] mr-[2.87vw]"
+                src="https://th.bing.com/th/id/OIP.WbYdRehHUCayfya36132_wHaHa?pid=ImgDet&rs=1"
+                alt=""
+              />
+            </div>
+            <div class="flex items-center w-[20vw] ml-[-37vw]">
+              <router-link :to="{ path: '/PhotoWall' }">
+                <span
+                  class="text-[black] dark:text-[#ffffff]"
+                  @click="bianhuandong"
+                  >麹伊</span
+                >
+              </router-link>
+
+              <icon
+                icon="ep:arrow-right-bold"
+                width="15"
+                class="text-[black] dark:text-[#ffffff]"
+              />
+            </div>
+            <icon
+              icon="lucide:scan-line"
+              width="20"
+              class="text-[black] dark:text-[#ffffff]"
+            />
+          </div>
+        </template>
+        <div class="pl-[4vw] pr-[4vw] overflow-hiddenbg-[#ededed] pt-[8vw]">
+          <!-- 黑胶 -->
+          <div
+            class="rounded-[4vw] w-[72vw] h-[30vw] pt-[2vw] ml-[2.5vw] mt-[5vw] pl-[1vw]"
+            style="  background: rgb(60, 58, 56); background: linear-gradient( 90deg, rgba(60, 58, 56, 1) 0%, rgba(95, 81, 78, 1) 100% );
+            "
+          >
+            <p
+              class="h-[6vw] text-[#f9e7de] font-[700] text-[4vw] ml-[1vw]"
+              style="text-indent: 1em"
+            >
+              续费黑胶Vip
+              <span
+                class="h-[2vw] w-[10vw] rounded-[1vw] bg-[#000000] inline-block relative ml-[2vw]"
+              >
+                <span
+                  class="h-[2vw] w-[7vw] rounded-[1vw] bg-[balck] inline-block absolute left-0"
+                  style="
+                    background: rgb(227, 195, 191);
+                    background: linear-gradient(
+                      90deg,
+                      rgba(227, 195, 191, 1) 0%,
+                      rgba(255, 255, 255, 1) 100%
+                    );
+                  "
+                ></span>
+              </span>
+              <span
+                class="h-[2vw] w-[10vw] rounded-[1vw] inline-block text-[#7b706f]"
+                >4v</span
+              >
+              <span
+                class="h-[6vw] border-[0.5vw ] rounded-[3vw] text-[2vw] inline-block"
+                style="
+                  border: #aa9793 solid 0.25vw;
+                  line-height: 6vw;
+                  text-align: center;
+                  text-indent: 0;
+                "
+                >&nbsp;&nbsp;会员中心&nbsp;</span
+              >
+            </p>
+            <div>
+              <p class="text-[3vw] text-[#9a958d] ml-[6vw] mt-[3vw]">
+                礼品卡&nbsp;&nbsp;|&nbsp;&nbsp;毕业快乐
+              </p>
+            </div>
+
+            <div
+              class="text-[3vw] text-[#9a958d] ml-[5vw] mt-[3vw] h-[11vw] w-[60vw] relative"
+              style="border-top: 1px solid #aa9793; line-height: 11vw"
+            >
+              受邀专享,黑胶vip低至0.27元/天!
+
+              <div
+                class="h-[8vw] w-[8vw] bg-[#d94e0e] rounded-[1vw] text-[2vw] text-[#fff8dc] font-[700]"
+                style="
+                  line-height: 0vw;
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-content: space-around;
+                  justify-content: space-around;
+                  position: absolute;
+                  left: 52vw;
+                  top: 1vw;
+                "
+              >
+                <span>受邀</span>
+                <span>专享</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mb-[4.17vw] bg-[#ffffff] dark:bg-[#202020] rounded-xl px-[4.26vw] mt-[4.17vw]"
+          >
+            <div
+              class="h-[12.69vw] border-[#f3f3f3] border-b-[1px] dark:border-[#373737] flex justify-between items-center"
+            >
+              <div class="flex items-center">
+                <Icon
+                  class="text-[black] dark:text-[white]"
+                  icon="solar:letter-linear"
+                  width="15"
+                />
+                <p class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]">
+                  消息中心
+                </p>
+              </div>
+              <icon icon="ep:arrow-right-bold" color="white" width="15" />
+            </div>
+            <div
+              class="h-[12.69vw] border-[#f3f3f3] border-b-[1px] dark:border-[#373737] flex justify-between items-center"
+            >
+              <div class="flex items-center">
+                <Icon
+                  class="text-[black] dark:text-[white]"
+                  icon="simple-icons:shell"
+                  width="15"
+                />
+                <p class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]">
+                  云贝中心
+                </p>
+              </div>
+              <icon
+                class="text-[black] dark:text-[white]"
+                icon="ep:arrow-right-bold"
+                color="white"
+                width="15"
+              />
+            </div>
+            <div class="h-[12.69vw] flex justify-between items-center">
+              <div class="flex items-center">
+                <Icon
+                  class="text-[black] dark:text-[white]"
+                  icon="streamline:interface-lighting-light-bulb-on-lighting-light-shine-incandescent-bulb-lights"
+                  width="15"
+                />
+                <p class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]">
+                  创作者中心
+                </p>
+              </div>
+              <icon
+                class="text-[black] dark:text-[white]"
+                icon="ep:arrow-right-bold"
+                color="white"
+                width="15"
+              />
+            </div>
+          </div>
+          <!-- 音乐服务 -->
+          <div
+            class="mb-[4.17vw] bg-[#ffffff] dark:bg-[#202020] rounded-xl pr-[4vw]"
+          >
+            <div
+              class="h-[10vw] pl-[4.26vw] border-[#f3f3f3] border-b-[1px] dark:border-[#373737] text-[#ccc] leading-[10vw] w-[77vw] text-[3.5vw]"
+            >
+              音乐服务
+            </div>
+            <div class="px-[4.26vw]">
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="emojione-monotone:dotted-six-pointed-star"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    趣测
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[0.8vw] mr-[2.78vw] text-[#8f8f8f] dark:text-[#9c9c9c]"
+                    >点击查看今日运势</span
+                  >
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="white"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="emojione-monotone:admission-tickets"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    云村有票
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="system-uicons:cube"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    多多西西口袋
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="solar:bag-4-outline"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    商城
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="streamline:interface-signal-square-heart-line-stats-beat-square-graph"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    Beat专区
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw]"
+                    >顶尖制作邀你创作</span
+                  >
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ri:bell-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    口袋彩铃
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="mingcute:game-2-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    游戏专区
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw]"
+                    >音乐浇潘治愈花园</span
+                  >
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 其他 -->
+          <div class="mb-[4.17vw] bg-[#ffffff] dark:bg-[#202020] rounded-xl">
+            <div
+              class="h-[10vw] pl-[4.26vw] border-[#f3f3f3] border-b-[1px] dark:border-[#373737] text-[#ccc] leading-[10vw] text-[3.5vw]"
+            >
+              其他
+            </div>
+            <div class="px-[4.26vw]">
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="icon-park-outline:setting-one"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    设置
+                  </p>
+                </div>
+                <icon
+                  class="text-[black] dark:text-[white]"
+                  icon="ep:arrow-right-bold"
+                  color="#ccc"
+                  width="15"
+                />
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="emojione-monotone:admission-tickets"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    浅色模式
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <v-switch v-model="switchCheckStatus" />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="system-uicons:cube"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    定时关闭
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="solar:bag-4-outline"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    个性装扮
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="streamline:interface-signal-square-heart-line-stats-beat-square-graph"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    边听边存
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw]"
+                    >在线听歌免流量</span
+                  >
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ri:bell-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    添加Siri捷径
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="mingcute:game-2-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    音乐黑名单
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="mingcute:game-2-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    青少年模式
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw]"
+                    >未开启</span
+                  >
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="mingcute:game-2-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    音乐闹钟
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-[4.17vw] bg-[#ffffff] dark:bg-[#202020] rounded-xl">
+            <div class="px-[4.26vw]">
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="icon-park-outline:setting-one"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    我的客服
+                  </p>
+                </div>
+                <icon
+                  class="text-[black] dark:text-[white]"
+                  icon="ep:arrow-right-bold"
+                  color="#ccc"
+                  width="15"
+                />
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="emojione-monotone:admission-tickets"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    我的订单
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="system-uicons:cube"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    优惠券
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="solar:bag-4-outline"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    分享网易云音乐
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="streamline:interface-signal-square-heart-line-stats-beat-square-graph"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    边听边存
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw]"
+                    >个人信息</span
+                  >
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ri:bell-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    个人信息第三方共享清单
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
+                  ></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="mingcute:game-2-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    个人与隐私保护
+                  </p>
+                </div>
+                <div class="flex">
+                  <span class="text-[#ccc] text-[2.6vw] mr-[2.78vw]"></span>
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+              <div class="h-[12.69vw] flex justify-between items-center">
+                <div class="flex items-center">
+                  <Icon
+                    class="text-[black] dark:text-[white]"
+                    icon="mingcute:game-2-line"
+                    width="15"
+                  />
+                  <p
+                    class="ml-[3vw] text-[black] dark:text-[white] text-[3.5vw]"
+                  >
+                    关于
+                  </p>
+                </div>
+                <div class="flex">
+                  <span
+                    class="text-[#8f8f8f] dark:text-[#9c9c9c] text-[1.6vw] mr-[2.78vw]"
+                    >未开启</span
+                  >
+                  <icon
+                    class="text-[black] dark:text-[white]"
+                    icon="ep:arrow-right-bold"
+                    color="#ccc"
+                    width="15"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-[#ffffff] dark:bg-[#202020] rounded-xl h-[12vw] w-[77vw] text-center pt-[2vw]"
+            v-if="cookie !== undefined && cookie !== null"
+          >
+            <p class="text-[#db4353] text-[4vw]" @click="exitLoginPopup">
+              退出登录
+            </p>
+          </div>
+          <div v-else></div>
+        </div>
+      </Drawer>
+      <!-- 轮播1 -->
+      <van-swipe
+        :autoplay="3000"
+        lazy-render
+        class="w-[95vw] h-[35vw] mt-[5vw]"
+      >
+        <van-swipe-item v-for="item in menu" :key="item.id">
+          <img :src="item.pic" class="" />
+        </van-swipe-item>
+      </van-swipe>
+
+      <!-- 菜单 -->
+      <div class="overflow-auto dark:gundong">
         <div>
-          <expressDelivery
-            class="w-[800vw]"
-            :express="xinges"
-            :Delivery="introduce"
-             v-if="cookie !== undefined && cookie!== null"
-          />
-          <expressDelivery
-            class="w-[800vw]"
-            :express="xinge"
-            :Delivery="introduce"
-             v-else
+          <indexmenu
+            class="flex justify-between mt-4 w-[200vw]"
+            :menu="menus"
           />
         </div>
       </div>
-    </div>
-    <!-- 排行榜 -->
-    <div class=" ">
-      <div class="mt-[5vw]">
-        <p class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]">
-		排行榜
-			<Icon icon="ep:arrow-right-bold" width="20" />
-      <button is-link @click="showPopup() ,int='排行榜'"   >	<Icon icon="teenyicons:more-vertical-outline" class=" ml-[65vw] h-[4vw]" /></button>
-		</p>
 
-        <div class="overflow-auto">
-          <div>
-            <ranking class="w-[564vw] pt-[5vw] h-[92vw] " :king="phb" />
+      <!-- 轮播2 -->
+      <div class="mt-[5vw]">
+        <p
+          class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]"
+        >
+          推荐歌单
+          <Icon icon="ep:arrow-right-bold" width="20" />
+          <button is-link @click="showPopup(), (int = '推荐歌单')">
+            <Icon
+              icon="teenyicons:more-vertical-outline"
+              class="ml-[60vw] h-[4vw]"
+            />
+          </button>
+        </p>
+        <div class="overflow-auto" :id="id">
+          <div class="w-[253vw] flex h-[45vw]">
+            <div class="pt-[1vw] relative w-[32vw] mr-4">
+              <div class="w-[32vw] relative z-[1]">
+                <div
+                  class="w-[32vw] h-[32vw] bg-[#f3f3f3] overflow-hidden relative"
+                >
+                  <transition
+                    name="abc"
+                    v-for="(item, index) in subTitle"
+                    :key="item.vls"
+                  >
+                    <div
+                      v-if="visiblesss === index"
+                      class="absolute top-0 left-0"
+                    >
+                      <img
+                        :src="item.uiElement?.image?.imageUrl"
+                        alt=""
+                        class="w-[32vw] h-[32vw] rounded-[8px] bg-cover"
+                      />
+
+                      <div
+                        class="absolute top-[2vw] right-[2.5vw] font-[800] text-[#fff] flex items-center"
+                      >
+                        <Icon icon="jam:infinite" class="w-[8vw] h-[5vw]" />
+                      </div>
+                    </div>
+                  </transition>
+                </div>
+                <p
+                  class="text-[#4d505e] absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] mt-[1vw] dark:text-[#dededf]"
+                >
+                  {{ resourceData || subTitle[0]?.uiElement?.mainTitle.title }}
+                </p>
+              </div>
+              <div
+                class="w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0] dark:bg-[#25272f]"
+              ></div>
+            </div>
+
+            <div
+              v-for="(item, index) in subTitle"
+              :key="item.id2"
+              class="mr-4 relative w-[32vw]"
+            >
+              <router-link
+                :to="{ path: `/HomePlaylist/${id[index]}` }"
+                class="flex relative"
+              >
+                <img
+                  :src="item.uiElement?.image?.imageUrl"
+                  alt=""
+                  class="w-[32vw] h-[32vw] rounded-[4vw] z-[30] relative mt-[1vw]"
+                  style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5)"
+                />
+                <p
+                  class="absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] text-[#4d505e] mt-[1vw] dark:text-[#dededf]"
+                  style="top: 33vw"
+                >
+                  {{ item.uiElement?.mainTitle.title }}
+                </p>
+                <div
+                  class="absolute top-[2vw] right-[3vw] font-[600] text-[#fff] flex items-center z-[35]"
+                >
+                  <span class="text-[#ffffff] whitespace-nowrap text-right"
+                    ><icon
+                      icon="solar:play-bold"
+                      class="float-left w-[4vw] h-[3vw] text-[#ffffff] mt-[0.8vw] pr-[1vw]"
+                    />
+                    {{
+                      Math.floor(
+                        item.resources[0].resourceExtInfo.playCount / 10000
+                      )
+                    }}万</span
+                  >
+                </div>
+
+                <div
+                  class="w-[26vw] h-[31vw] bg-[#ddd] absolute top-[0vw] left-[3vw] rounded-[8px] z-[0] dark:bg-[#25272f]"
+                ></div>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- 音乐日历 -->
-    <div class="mt-[5vw] ">
-      <div class="w-[95vw]">
-        <p class="text-[5vw] font-[700] mb-3 flex items-center  text-[#4a4c51] dark:text-[#dededf]">
-			音乐日历
-			<Icon icon="ep:arrow-right-bold" width="20" />
-      <button is-link @click="showPopup() ,int='音乐日历'"   >	<Icon icon="teenyicons:more-vertical-outline"  class=" ml-[60vw] h-[4vw]" /></button>
-		</p>
-        <div >
-          <calenda
-            class="bg-[#ffffff] rounded-[4vw] mt-[5vw] shadow-md border-b dark:bg-[#25272e] dark:text-[#fff] dark:shadow-[0]"
-            :xxs="rili"
-            :Month="currentMonth"
-            :Day="currentDay"
-          />
+      <!-- 新歌速递 -->
+      <div class="mt-[5vw]">
+        <p
+          class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]"
+        >
+          新歌速递
+          <Icon icon="ep:arrow-right-bold" width="20" />
+          <button is-link @click="showPopup(), (int = '新歌速递')">
+            <Icon
+              icon="teenyicons:more-vertical-outline"
+              class="ml-[60vw] h-[4vw]"
+            />
+          </button>
+        </p>
+
+        <div class="overflow-auto mt-[5vw] dark:bg-gray-900 dark:text-[#fff]">
+          <div>
+            <expressDelivery
+              class="w-[800vw]"
+              :express="xinges"
+              :Delivery="introduce"
+              v-if="cookie !== undefined && cookie !== null"
+            />
+            <expressDelivery
+              class="w-[800vw]"
+              :express="xinge"
+              :Delivery="introduce"
+              v-else
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <!-- 热门话题 -->
-    <div class="overflow-auto mt-[5vw]">
-      <p class="text-[5vw] font-[700] mb-3 flex items-center  text-[#4a4c51] dark:text-[#dededf]">
-			热门话题
-			<Icon icon="ep:arrow-right-bold" width="20" />
-      <button is-link @click="showPopup() ,int='热门话题'"   >	<Icon icon="teenyicons:more-vertical-outline"  class=" ml-[60vw] h-[4vw]" /></button>
-		</p>
-      <div class="overflow-auto">
+      <!-- 排行榜 -->
+      <div class=" ">
+        <div class="mt-[5vw]">
+          <p
+            class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]"
+          >
+            排行榜
+            <Icon icon="ep:arrow-right-bold" width="20" />
+            <button is-link @click="showPopup(), (int = '排行榜')">
+              <Icon
+                icon="teenyicons:more-vertical-outline"
+                class="ml-[65vw] h-[4vw]"
+              />
+            </button>
+          </p>
+
+          <div class="overflow-auto">
             <div>
-              <trendingTopics  class="w-[420vw]"
-          style="display: flex; justify-content: space-between"  :playlists="subTitle"/>
+              <ranking class="w-[564vw] pt-[5vw] h-[92vw]" :king="phb" />
             </div>
+          </div>
+        </div>
       </div>
+      <!-- 音乐日历 -->
+      <div class="mt-[5vw]">
+        <div class="w-[95vw]">
+          <p
+            class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]"
+          >
+            音乐日历
+            <Icon icon="ep:arrow-right-bold" width="20" />
+            <button is-link @click="showPopup(), (int = '音乐日历')">
+              <Icon
+                icon="teenyicons:more-vertical-outline"
+                class="ml-[60vw] h-[4vw]"
+              />
+            </button>
+          </p>
+          <div>
+            <calenda
+              class="bg-[#ffffff] rounded-[4vw] mt-[5vw] shadow-md border-b dark:bg-[#25272e] dark:text-[#fff] dark:shadow-[0]"
+              :xxs="rili"
+              :Month="currentMonth"
+              :Day="currentDay"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- 热门话题 -->
+      <div class="overflow-auto mt-[5vw]">
+        <p
+          class="text-[5vw] font-[700] mb-3 flex items-center text-[#4a4c51] dark:text-[#dededf]"
+        >
+          热门话题
+          <Icon icon="ep:arrow-right-bold" width="20" />
+          <button is-link @click="showPopup(), (int = '热门话题')">
+            <Icon
+              icon="teenyicons:more-vertical-outline"
+              class="ml-[60vw] h-[4vw]"
+            />
+          </button>
+        </p>
+        <div class="overflow-auto">
+          <div>
+            <trendingTopics
+              class="w-[420vw]"
+              style="display: flex; justify-content: space-between"
+              :playlists="subTitle"
+            />
+          </div>
+        </div>
+      </div>
+
+      <van-popup
+        v-model="show"
+        position="bottom"
+        closeable
+        :style="{ height: '30%' }"
+        class="dark:bg-[#25272e] dark:text-[#fff]"
+      >
+        <p
+          class="text-xl mt-4 items-center pl-[5vw]"
+          style="line-height: 2rem; border-bottom: 0.1vw solid gray"
+        >
+          {{ int }}
+        </p>
+        <li
+          class="flex text-xl mt-4 items-center pl-[5vw]"
+          style="line-height: 2rem"
+        >
+          <Icon icon="uiw:like-o" class="mr-3 text-[3.5vw]" />
+          <p>优先推荐</p>
+        </li>
+        <li
+          class="flex text-xl mt-4 items-center pl-[5vw]"
+          style="line-height: 2rem"
+        >
+          <Icon icon="uiw:heart-on" class="mr-3 text-[3.5vw]" />
+          <p>减少推荐</p>
+        </li>
+        <li
+          class="flex text-xl mt-4 items-center pl-[5vw]"
+          style="line-height: 2rem"
+        >
+          <Icon icon="mingcute:more-4-line" class="text-[3.5vw] mr-3" />
+          <p>更多内容</p>
+        </li>
+      </van-popup>
     </div>
-    
-          <van-popup v-model="show" position="bottom" closeable :style="{ height: '30%' } " class=" dark:bg-[#25272e] dark:text-[#fff]">  
-            <p class="text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem; border-bottom: 0.1vw solid gray;">{{int}}</p>
-            <li class=" flex text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;" >
-                    <Icon icon="uiw:like-o" class="mr-3 text-[3.5vw]" />
-                    <p>优先推荐</p>
-                </li>
-                <li class=" flex text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;" >
-                    <Icon icon="uiw:heart-on" class="mr-3 text-[3.5vw]" />
-                    <p>减少推荐</p>
-                </li>
-                <li class=" flex text-xl mt-4 items-center pl-[5vw]" style="line-height: 2.0rem;" >
-                    <Icon icon="mingcute:more-4-line" class= "text-[3.5vw] mr-3" />
-                    <p>更多内容</p>
-                </li>
-          </van-popup>
-
-
-   
   </div>
-</div>
 </template>
 
 <script>
 import { Toast } from 'vant';
 import axios from 'axios';
-import Swiper from 'swiper';
-import {fetchUserAccount} from '@/request'
+// import Swiper from 'swiper';
+import { fetchUserAccount } from '@/request';
 import BScroll from '@better-scroll/core';
 import ScrollBar from '@better-scroll/scroll-bar';
-import '../../../node_modules/swiper/css/swiper.css';
+// import '../../../node_modules/swiper/css/swiper.css';
 import indexmenu from './components/menu.vue'; //菜单
 import playlist from './components/playlist.vue'; //推荐歌单
 import expressDelivery from './components/expressDelivery.vue'; //新歌速递
 import ranking from './components/ranking.vue'; //排行榜
 import calenda from './components/calenda.vue'; //日历
 import trendingTopics from './components/trendingTopics.vue';
-import { Homeblock,Homedragon,Homecal } from '@/request';
+import { Homeblock, Homedragon, Homecal } from '@/request';
 import store from 'storejs';
-import  Dialog from '../../commponent/Dialog/index.js';//调用弹窗
+import Dialog from '../../commponent/Dialog/index.js'; //调用弹窗
 
 export default {
-
   async created() {
     const res = await Homeblock();
     this.menu = res.data.data.blocks[0].extInfo.banners;
-    this.subTitle = res.data.data.blocks[1].creatives;//推荐歌单
+    this.subTitle = res.data.data.blocks[1].creatives; //推荐歌单
     this.xinges = res.data.data.blocks[2].creatives;
     this.xinge = res.data.data.blocks[5].creatives;
-    
-    this.phb = res.data.data.blocks[3].creatives;//排行榜
+
+    this.phb = res.data.data.blocks[3].creatives; //排行榜
     this.changeID();
-    const dragon =await Homedragon();
+    const dragon = await Homedragon();
     this.menus = dragon.data.data;
-    const cal =await Homecal();
+    const cal = await Homecal();
     this.rili = cal.data.data.calendarEvents;
-    
   },
   components: {
     ranking,
@@ -598,11 +1180,11 @@ export default {
     calenda,
     trendingTopics,
   },
-  
+
   data() {
     return {
       cookie: store.get('__m__cookie'),
-      id:[],
+      id: [],
       menus: [],
       visiblesss: 2,
       resourceData: '',
@@ -622,21 +1204,18 @@ export default {
       phb: [],
       menu: [],
       subTitle: [],
-      xinges:[],
+      xinges: [],
       xinge: [],
-      swiper: null,
     };
   },
-  updated() {
-    this.$nextTick(() => {
-      this.getswiper();
-    });
-  },
+  // updated() {
+  //   this.$nextTick(() => {
+  //     this.getswiper();
+  //   });
+  // },
   methods: {
     exitLoginPopup() {
-      Dialog({ message: '确定退出当前账号吗？' },
-             { visible :true }
-      )
+      Dialog({ message: '确定退出当前账号吗？' }, { visible: true })
         .then(() => {
           console.log('点击了确定');
           store.remove('__m__cookie'); //删除用户信息
@@ -645,13 +1224,13 @@ export default {
         })
         .catch(() => {});
     },
- 
-    changeID(){
-            this.id = []
-            for(let i=0;i<this.subTitle.length;i++){
-                this.id.push(parseInt(this.subTitle[i].creativeId))
-            }
-        },
+
+    changeID() {
+      this.id = [];
+      for (let i = 0; i < this.subTitle.length; i++) {
+        this.id.push(parseInt(this.subTitle[i].creativeId));
+      }
+    },
     animateItems() {
       setInterval(() => {
         this.visiblesss++;
@@ -671,23 +1250,9 @@ export default {
         `overflow: ${this.drawerVisible ? ' hidden' : ' visible'}`
       );
     },
-    getswiper() {
-      new Swiper('.swiper-container', {
-        paginationClickable: true,
-        touchMoveStopPropagation: false,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
-      new Swiper('.swiper-container2', {
-        paginationClickable: true,
-        touchMoveStopPropagation: false,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
+    bianhuandong() {
+      const body = document.querySelector('body');
+      body.setAttribute('style', `overflow: visible`);
     },
 
     fn(e) {
@@ -701,20 +1266,21 @@ export default {
   mounted() {
     this.animateItems();
     this.updateOverflow();
+    this.bianhuandong();
     setInterval(() => {
       this.visibles = !this.visibles;
     }, 3000);
-    const date = new Date();
-    this.currentMonth = date.getMonth() + 1; // 月份从 0 开始，所以需要加1
-    this.currentDay = date.getDate();
-    this.swiper = new Swiper('.swiper-container', {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
+    // const date = new Date();
+    // this.currentMonth = date.getMonth() + 1; // 月份从 0 开始，所以需要加1
+    // this.currentDay = date.getDate();
+    // this.swiper = new Swiper('.swiper-container', {
+    //   slidesPerView: 3,
+    //   spaceBetween: 30,
+    //   pagination: {
+    //     el: '.swiper-pagination',
+    //     clickable: true,
+    //   },
+    // });
   },
   beforeDestroy() {},
   // created() {
@@ -724,7 +1290,7 @@ export default {
   //       'https://netease-cloud-music-c2c1ys55f-cc-0820.vercel.app/homepage/block/page'
   //     )
   //     .then(() => {
-        
+
   //     })
   //     .catch((err) => {
   //       console.log(err);
@@ -791,9 +1357,9 @@ li {
   -webkit-user-select: none;
   user-select: none;
 }
-.swiper-slide {
+/* .swiper-slide {
   overflow: visible;
-}
+} */
 body {
   margin-top: -5vw;
   background: rgb(175, 226, 244);

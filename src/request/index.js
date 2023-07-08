@@ -36,6 +36,9 @@ export const fetchLoginQrCreate = (key, qrimg = 1) => http.get('/login/qr/create
 */
 export const fetchLoginQrCheck = (key) => http.get('/login/qr/check', { params: { key, timestamp: Date.now() } })
 
+
+
+export const loginStatus = () => http.get('/login/status')
 /**
 * @descriptiong 获取账户信息
 */
@@ -45,3 +48,53 @@ export const fetchUserAccount = () => http.get('/user/account', { params: { id: 
 * @descriptiong 获取账户信息
 */
 export const fetchUserDetail = (uid) => http.get('/user/detail', { params: { uid } });
+
+/**
+* @descriptiong 获取用户歌单
+*/
+export const fetchUserPlaylist = (uid) => http.get('/user/playlist', { params: { uid } });
+
+/**
+* @descriptiong 获取用户评论
+*/
+export const fetchUserHistory = (uid) => http.get('/user/comment/history', { params: { uid } });
+/**
+* @descriptiong 转发的动态
+*/
+export const fetchUserdynamics = (uid) => http.get('/user/event/forward', { params: { uid } });
+
+/**
+* @descriptiong 播客/电台
+*/
+export const fetchdj = (uid) => http.get('/user/subcount', { params: { uid } });
+
+//获取用户信息 , 歌单，收藏，mv, dj 数量
+export const userSubcount = (uid) => http.get('/user/subcount')
+
+//获取用户等级
+export const userLevel = (uid) => http.get('/user/level')
+
+//获取用户关注
+export const userGuanZhu = (uid) => http.get(`/user/follows`,{ params: { uid } })
+
+//获取用户粉丝
+export const userFolloweds = (uid) => http.get(`/user/followeds`,{ params: { uid } })
+// 获取用户信息
+export const fetchUserSubcount = () => http.get('/user/subcount')
+
+//获取实际地址
+export const myIP = ()=>ipData.get(`/${params}`)
+
+//获取用户详情
+export const userDetail = (uid) => http.get(`/user/detail`,{ params: { uid } })
+/**
+* @description 获取默认搜索关键词
+*/
+export const fetchSearchDefault = () => http.get('/search/default');
+
+/**
+* @description 搜索
+*/
+export const fetchCloudsearch = (keywords) => http.get('/cloudsearch', {
+  params: { keywords },
+});

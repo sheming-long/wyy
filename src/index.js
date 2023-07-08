@@ -6,22 +6,21 @@ import router from '@/router/index';
 // 引入switch
 import Switch from './commponent/Switch.vue';
 Vue.component('v-switch', Switch);
-
-// 引入dialog
 import  Dialog  from './commponent/Dialog';
-// Vue.use(Dialog);
-//引入vant
-import Vant from 'vant';
-import { ActionSheet } from 'vant';
-import { Popup } from 'vant';
-Vue.use(ActionSheet);
+import { ActionSheet, NoticeBar, Popup, Button, Area,Swipe,SwipeItem } from 'vant';
 import 'vant/lib/index.css';
-Vue.use(Popup);
 
+Vue.use(ActionSheet);
+Vue.use(NoticeBar);
+Vue.use(Popup);
+Vue.use(Button);
+Vue.use(Area);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
 // 引入icon
 Vue.component('Icon', Icon);
 Vue.component('Drawer', Drawer);
-Vue.use(Vant);
+
 const app = new Vue({
   el: '#app',
   router,

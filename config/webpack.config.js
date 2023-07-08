@@ -14,6 +14,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.template$/,
         use: {
           loader: path.resolve(__dirname, './loaders/template.js'),
@@ -54,6 +60,7 @@ module.exports = {
       vue: 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, '../src'),
     },
+    extensions:[".js",".json",".jsx"]
   },
   // externals: {
   //   vue: 'Vue',
@@ -75,6 +82,8 @@ module.exports = {
     },
   },
   plugins: [
+   
+
     new WebpackBar(),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:8].css',
@@ -94,6 +103,10 @@ module.exports = {
         { from: "./src/static", to: "./static" },
         // { from: "other", to: "public" },
       ],
+      
     }),
+   
   ],
+ 
+  
 };
