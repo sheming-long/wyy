@@ -19,7 +19,7 @@
         <div @click="showPopup() ">
             <Icon icon="iconamoon:playlist-fill" class="text-[6vw] text-[#3b4152] ml-[4.5vw]" />
         </div>
-        <van-popup v-model="show" position="bottom">
+        <van-popup v-model="show" position="bottom" round="false">
             <Current :musicNenu="musicNenu">
 
 </Current>

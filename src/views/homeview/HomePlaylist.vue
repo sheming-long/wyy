@@ -204,7 +204,7 @@
 import Vue from 'vue';
 import { Popup } from 'vant';
 Vue.use(Popup);
-import Player from "@/commponent/Player/player.vue"
+import Player from "../../commponent/Player/Player.vue"
 import axios from 'axios';
 export default {
     components: { Player },
