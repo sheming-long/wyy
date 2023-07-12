@@ -2,6 +2,7 @@ import styled from 'styled-components-vue';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { areaList } from '@vant/area-data';
 dayjs.extend(relativeTime);
 dayjs.locale('zh-cn');
 // console.log(dayjs(1688776267489).fromNow());
@@ -22,12 +23,14 @@ const Wrapper = styled.div`
     height: 100vh;
     background: url(/static/R.jpg);
     background-size: cover;
+    
     .xuanxiangka{
         background-color: #f5f5f5;
         padding:3vw;
         border-radius: 3vw;
         min-height: 100vh;
         margin-top: 49vw;
+       
     }
     .custom-class {
     white-space: normal;
@@ -42,35 +45,76 @@ const Wrapper = styled.div`
 div::-webkit-scrollbar-track {
   opacity: 0;
 }
+.element {
+ 
+  background-color: #f5f5f5;
+  position: sticky;
+  top: 0;
+}
+
+.sticky-color {
+  background-color: white; /* 设置为你想要的颜色 */
+  position:fixed;
+  width: 100%;
+  top: 9vw;
+  margin-left: -3vw;
+}
 `
 export default {
     render() {
         return (
-            <Wrapper>
+        <Wrapper>
 
                 {/* 头部  */}
+                {this.scrollThreshold<30&&
                 <div class="flex justify-between pt-[3vw] pl-[3vw] pr-[3vw]">
-                    <Icon icon="ri:arrow-left-line" style="font-size: 7vw; color:white" class="font-600 text-[5vw] "
-                        nativeOnClick={this.home}
-                    />
-                    <p style="width: calc(22vw);align-items: center;justify-content: space-between;" class="flex">
-                        <span class="h-[4vw]  rounded-[2vw] text-right text-[2vw] bg-white flex "
-                            style="align-items: center;justify-content: space-around; width: calc(12vw)"
-                        >照片墙</span>
-                        <span class="  h-[3vw] rounded-[50%] " style="background:#dabca3;width:3vw"></span>
-                        <span class="  h-[2vw] rounded-[50%] " style="background:#dabca3;width:2vw"></span>
-                    </p>
-                    <Icon icon="teenyicons:more-vertical-outline" class="text-[5vw] text-white" style="font-size: 7vw; color:white" />
-                </div>
-    
+                <Icon icon="ri:arrow-left-line" style="font-size: 7vw; color:white" class="font-600 text-[5vw] "
+                    nativeOnClick={this.home}
+                />
+                <p style="width: calc(22vw);align-items: center;justify-content: space-between;" class="flex">
+                    <span class="h-[4vw]  rounded-[2vw] text-right text-[2vw] bg-white flex "
+                        style="align-items: center;justify-content: space-around; width: calc(12vw)"
+                    >照片墙</span>
+                    <span class="  h-[3vw] rounded-[50%] " style="background:#dabca3;width:3vw"></span>
+                    <span class="  h-[2vw] rounded-[50%] " style="background:#dabca3;width:2vw"></span>
+                </p>
+                <Icon icon="teenyicons:more-vertical-outline" class="text-[5vw] text-white" style="font-size: 7vw; color:white" />
+            </div>
+                 }
+                 {this.scrollThreshold>30&this.scrollThreshold<=258&&
+                         <div class="flex justify-between pt-[3vw] pl-[3vw] pr-[3vw] " style="position: sticky;top: 0;">
+                         <Icon icon="ri:arrow-left-line" style="font-size: 7vw; color:white" class="font-600 text-[5vw] "
+                             nativeOnClick={this.home}
+                         />
+                         <Icon icon="teenyicons:more-vertical-outline" class="text-[5vw] text-white" style="font-size: 7vw; color:white" />
+                     </div>
+                 }
+                 {this.scrollThreshold >485&&
+                         <div class="flex justify-between pt-[3vw] pl-[3vw] pr-[3vw] z-[999] bg-white w-[100%]" style="position: fixed;top: 0; ">
+                         <Icon icon="ri:arrow-left-line" style="font-size: 7vw; color:black" class="font-600 text-[5vw] "
+                             nativeOnClick={this.home}
+                         />
+                         <p class=" font-[550]" style="font-size:4vw; margin-left:-68vw ;display: flex;align-items: flex-end;">麹伊</p>
+                         <Icon icon="teenyicons:more-vertical-outline" class="text-[5vw] text-black" style="font-size: 7vw;" />
+                     </div>
+                 }
+                {this.scrollThreshold>258&this.scrollThreshold<485&&
+                         <div class="flex justify-between pt-[3vw] pl-[3vw] pr-[3vw] z-[50]  bg-white w-[100%] sticky top-0" style={{ opacity:this.scrollThreshold * 0.002849 }}>
+                         <Icon icon="ri:arrow-left-line" style="font-size: 7vw; color:black" class="font-600 text-[5vw] "
+                             nativeOnClick={this.home}
+                         />
+                         <Icon icon="teenyicons:more-vertical-outline" class="text-[5vw] text-black" style="font-size: 7vw;" />
+                     </div>
+                 }
+                
                      
                 {/* 内容部分 */}
                 <div class="xuanxiangka">
                     {/* 上部分 个人信息 */}
                     <div class=" text-center relative bg-white" style="border-radius: 5vw;">
-                        <div class="flex flex-col items-center relative" >
-                            <img src={this.headImg} alt="" class=" absolute top-[-9vw]  w-[18vw] h-[18vw]" style="border-radius: 50%;" />
-                            <p class="mt-[10vw] font-[550]" style="font-size:5vw; ">{this.userName}</p>
+                        <div class="flex flex-col items-center relative"  style={{ opacity:1-this.scrollThreshold * 0.002849 }}>
+                            <img src={this.headImg} alt="" class=" absolute top-[-9vw]  w-[18vw] h-[18vw] rounded-[50%]" style="" />
+                            <p class="mt-[10vw] font-[550] text-[5vw]" style=""  >{this.userName}</p>
                         </div>
                         <div class="flex justify-center mt-[3vw]">
                             <p class="mr-4 text-[#999ba2]" style="font-size:3vw">{this.guanzhu} 关注</p><span  class="mr-4 text-[#e6e6e6]" style="font-size:3vw">|</span>
@@ -79,7 +123,7 @@ export default {
                         </div>
                         <div class="flex justify-center mt-[3vw] mb-[4vw]">
                             <p class="mr-4 pl-[1.5vw] pr-[1.5vw]  rounded-[1.2vw] text-[3vw] h-[6.1vw] flex" style="border: 1px solid #e6e6e6;align-items: center;">IP：东京</p>
-                            <p class="mr-4 pl-[1.5vw] pr-[1.5vw]  rounded-[1.2vw] text-[3vw] h-[6.1vw] flex" style="border: 1px solid #e6e6e6; align-items: center;">湖北 宜昌</p>
+                            <p class="mr-4 pl-[1.5vw] pr-[1.5vw]  rounded-[1.2vw] text-[3vw] h-[6.1vw] flex" style="border: 1px solid #e6e6e6; align-items: center;">{this?.province[0]}{this?.city[0]}</p>
                             <p class="mr-4 pl-[1.5vw] pr-[1.5vw]  rounded-[1.2vw] text-[3vw] h-[6.1vw] flex" style="border: 1px solid #e6e6e6; align-items: center;">村龄 4年</p>
                         </div>
                         <div class="flex justify-center items-center pb-[3vw]">
@@ -147,8 +191,8 @@ export default {
                         </div>
                     </div>
                     {/* 点击部分 */}        
-                    <div class="mt-[6vw]">
-                        <p class="text-[4vw] font-[600] flex " style="justify-content: space-around; ">
+                    <div class={this.isColorAdded ?"sticky-color":"element"}  >
+                        <p class="text-[4vw] font-[600] flex h-[13vw] w-[100%]" style="justify-content: space-around;     align-items: center; ">
                             <span class="text-[#919398]"
                                 onClick={() => this.value = 0}
                             >主页</span>
@@ -373,6 +417,8 @@ export default {
 
     data() {
         return {
+            isColorAdded: false, //按钮
+            scrollThreshold: 0, // 退出
             value: 0,
             listenSongs: '', // 累计听歌
             songList: [], // 收藏的歌单
@@ -401,7 +447,13 @@ export default {
             //箭头拉伸
             isHeight: false,
             //用户动态
-            userDynamics: ''
+            userDynamics: '',
+            // 省
+            province:[],
+            // 市
+            city:[],
+            // 暂存
+            areaList
         }
     },
     async created() {
@@ -412,7 +464,21 @@ export default {
         const res2 = await fetchUserDetail(res1.data.profile.userId);
         this.listenSongs = res2.data.listenSongs; // 累计听歌
         this.gender = res2.data.profile.gender; // 性别
-
+        // 省市
+        this.province[0] = this.postalCodeSearch(
+            // 省
+            'province_list',
+            res2?.data?.profile?.province
+          );
+          this.province[1] = res2?.data?.profile?.province + ''; // 省的邮编
+      
+          this.city[0] = this.postalCodeSearch(
+            // 市
+            'city_list',
+            res2?.data?.profile?.city
+          );
+          this.city[1] = res2?.data?.profile?.city + ''; // 市的邮编
+       
         // 收藏、创建歌单
         const res3 = await fetchUserPlaylist(res1.data.profile.userId);
         this.establishList = res3.data.playlist.filter((item) => !item.subscribed); // 创建的歌单
@@ -448,7 +514,14 @@ export default {
  
     },
     methods: {
-
+        // 搜寻省市
+        postalCodeSearch(key, zipCode) {
+            if (areaList.hasOwnProperty(key) && areaList[key][zipCode]) {
+              let src = areaList[key][zipCode];
+              return src;
+            }
+          },
+        // 截取汉字
         extract(jsonString) {
             const jsonStringObj = JSON.parse(jsonString); // 转换为JSON对象
             const msg = jsonStringObj.msg; // 获取msg的值
@@ -468,6 +541,7 @@ export default {
                 return playVolume?.toString();
             }
         },
+        //轮播高度
         change() {
             const more = document.getElementById('more')
             if (this.isHeight) {
@@ -479,7 +553,26 @@ export default {
                 more.style.height = '47.5vw'
                 this.isHeight = !this.isHeight
             }
-        }
-    }
-
+        },
+        // 滚动条
+        handleScroll() {
+            this.scrollThreshold = window.scrollY
+            if(window.scrollY>485){
+                this.isColorAdded= true
+            }
+            else{
+               this.isColorAdded= false
+            }
+           
+          }
+       
+      
+    },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
+      },
+      beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll);
+      },
+   
 }

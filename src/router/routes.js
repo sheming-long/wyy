@@ -6,7 +6,7 @@ import Foo from "../views/homeview/Foo.vue"
 import HomePlaylist from "../views/homeview/HomePlaylist.vue"
 import login from "../views/homeview/login.vue"
 import PhotoWall from "../views/homeview/PhotoWall.jsx"
-import xuanzeqi from "../views/homeview/xuanzeqi.vue"
+import fangdou from "../views/homeview/fangdou.vue"
 import xuanzeqijsx from "../views/homeview/xuanzeqi.jsx"
 import BianJizliao from "../views/homeview/BianJizliao.vue"
 import Searchpage from "../views/homeview/Searchpage.vue"
@@ -50,8 +50,8 @@ export default [
     component:() => import (/* webpackChunkName:'jsx' */'@/views/homeview/PhotoWall')
   },
   {
-    path : '/xuanzeqi',
-    component: xuanzeqi
+    path : '/fangdou',
+    component: fangdou
   },
   {
     path : '/xuanzeqijsx',

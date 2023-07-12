@@ -98,3 +98,30 @@ export const fetchSearchDefault = () => http.get('/search/default');
 export const fetchCloudsearch = (keywords) => http.get('/cloudsearch', {
   params: { keywords },
 });
+
+/**
+* @description 播放器
+*/
+export const getMP3 = (id) =>
+	http.get(`/song/url/v1`, { params: { id, level: 'standard' } })
+
+export const getTrackDetail = (id) => http.get('/song/detail', { params: { ids: id } });
+
+/**
+* @description 重复昵称检测
+*/
+export const featNicknameCheck = (nickname) => http.get('/nickname/check', { params: { nickname } });
+
+
+/**
+* @description 更新用户信息
+*/
+export const fetchUserUpdata = (nickname,gender, province, city, birthday) => http.get('/user/update', {
+  params: {
+    nickname, // 用户昵称
+    gender, // 性别 0:保密 1:男性 2:女性
+    province, // 省份id
+    city, // 城市id
+    birthday, // 出生日期,时间戳 unix timestamp
+  }
+});

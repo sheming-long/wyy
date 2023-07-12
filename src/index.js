@@ -7,9 +7,10 @@ import router from '@/router/index';
 import Switch from './commponent/Switch.vue';
 Vue.component('v-switch', Switch);
 import  Dialog  from './commponent/Dialog';
-import { ActionSheet, NoticeBar, Popup, Button, Area,Swipe,SwipeItem } from 'vant';
+import { ActionSheet, NoticeBar, Popup, Button, Area,Swipe,SwipeItem,Circle } from 'vant';
 import 'vant/lib/index.css';
-
+import formateTime from '@/utils/formateTime';
+Vue.use(formateTime);
 Vue.use(ActionSheet);
 Vue.use(NoticeBar);
 Vue.use(Popup);
@@ -20,6 +21,7 @@ Vue.use(SwipeItem);
 // 引入icon
 Vue.component('Icon', Icon);
 Vue.component('Drawer', Drawer);
+Vue.use(Circle)
 
 const app = new Vue({
   el: '#app',
@@ -27,5 +29,5 @@ const app = new Vue({
   components: { App },
   template: '<App/>',
 });
-
+//只要传递给主键的配置项,都会被保存在$
 

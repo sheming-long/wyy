@@ -1,0 +1,43 @@
+{
+    "data": {
+        "msg": null,
+        "code": 302,
+        "message": null
+    },
+    "status": 200,
+    "statusText": "",
+    "headers": {
+        "cache-control": "max-age=59",
+        "content-length": "38",
+        "content-type": "application/json; charset=utf-8"
+    },
+    "config": {
+        "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+        },
+        "adapter": [
+            "xhr",
+            "http"
+        ],
+        "transformRequest": [
+            null
+        ],
+        "transformResponse": [
+            null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1,
+        "env": {},
+        "headers": {
+            "Accept": "application/json, text/plain, */*"
+        },
+        "method": "post",
+        "url": "https://netease-cloud-music-api-five-roan-88.vercel.app/user/update?city=130000&province= 130100"
+    },
+    "request": {}
+}

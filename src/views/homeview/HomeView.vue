@@ -136,11 +136,8 @@
                   class="h-[2vw] w-[7vw] rounded-[1vw] bg-[balck] inline-block absolute left-0"
                   style="
                     background: rgb(227, 195, 191);
-                    background: linear-gradient(
-                      90deg,
-                      rgba(227, 195, 191, 1) 0%,
-                      rgba(255, 255, 255, 1) 100%
-                    );
+                    background: linear-gradient( 90deg,rgba(227, 195, 191, 1) 0%,                  rgba(255, 255, 255, 1) 100%
+                );
                   "
                 ></span>
               </span>
@@ -1164,7 +1161,6 @@ export default {
     this.subTitle = res.data.data.blocks[1].creatives; //推荐歌单
     this.xinges = res.data.data.blocks[2].creatives;
     this.xinge = res.data.data.blocks[5].creatives;
-
     this.phb = res.data.data.blocks[3].creatives; //排行榜
     this.changeID();
     const dragon = await Homedragon();
