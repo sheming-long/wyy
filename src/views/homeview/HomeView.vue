@@ -937,7 +937,7 @@
                   </transition>
                 </div>
                 <p
-                  class="text-[#4d505e] absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] mt-[1vw] dark:text-[#dededf]"
+                  class="text-[#4d505e] absolute z-40 h-[2.9rem] line-clamp-2 text-[3vw] mt-[1vw] dark:text-[#dededf] fade"
                 >
                   {{ resourceData || subTitle[0]?.uiElement?.mainTitle.title }}
                 </p>
@@ -1210,6 +1210,7 @@ export default {
   //   });
   // },
   methods: {
+   
     exitLoginPopup() {
       Dialog({ message: '确定退出当前账号吗？' }, { visible: true })
         .then(() => {
@@ -1226,6 +1227,7 @@ export default {
       for (let i = 0; i < this.subTitle.length; i++) {
         this.id.push(parseInt(this.subTitle[i].creativeId));
       }
+      
     },
     animateItems() {
       setInterval(() => {
@@ -1365,6 +1367,29 @@ body {
     rgb(205, 224, 235) 100%
   );
 }
+.fade {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade.hide {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+.fade.show {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
 
 .abc-enter {
   transform: translateY(100%) scale(0.7);

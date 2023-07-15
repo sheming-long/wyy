@@ -99,11 +99,9 @@ export const fetchCloudsearch = (keywords) => http.get('/cloudsearch', {
   params: { keywords },
 });
 
-/**
-* @description 播放器
-*/
-export const getMP3 = (id) =>
-	http.get(`/song/url/v1`, { params: { id, level: 'standard' } })
+
+// 播放器
+export const getMP3 = (id) =>http.get(`/song/url/v1`, { params: { id, level: 'standard' } })
 
 export const getTrackDetail = (id) => http.get('/song/detail', { params: { ids: id } });
 
@@ -125,3 +123,36 @@ export const fetchUserUpdata = (nickname,gender, province, city, birthday) => ht
     birthday, // 出生日期,时间戳 unix timestamp
   }
 });
+/**
+* @description mv 
+*/
+export const MVTop = (area, limit = 50) => http.get('/top/mv', { params: { limit, area } })
+//  export const MVTop = (id) => http.get('/top/mv', { params: {  ids: id } })
+
+/**
+* @description 获取音乐 url - 新版
+*/
+export const getSongUrlV1 = (id) => http.get('/song/url/v1', { params: { id, level: 'standard' } });
+
+/**
+* @description 当前播放歌曲的歌词
+*/
+export const featLyric = (id) => http.get('/lyric', { params: { id } });
+
+/**
+* @description MV视频
+*/
+export const featMvUrl = (id) => http.get('/mv/url', { params: { id } });
+
+/**
+* @description MV视频信息
+*/
+export const featMvDetail = (mvid) => http.get('/mv/detail', { params: { mvid } });
+
+/**
+* @description 获取 mv 点赞转发评论数数据
+*/
+export const featMvDetailInfo = (mvid) => http.get('/mv/detail/info', { params: { mvid } });
+
+// 歌词
+export const lyricText = (id) => http.get('/lyric', { params: { id } });

@@ -1,9 +1,9 @@
 <template>
     <div class="bg-[#927d4d] overflow-hidden relative">
-        <span class="flex w-[5vw] h-[5vw] rounded-[50%] bg-[#a18f64] items-center justify-around absolute z-[999]"
-            :class="`${condition ? 'right-[15px] top-[75px]' : 'right-[15px] top-[75px]'}`">
-            <Icon :icon="`${condition ? 'bytesize:chevron-bottom' : 'ep:arrow-up'}`" class="text-[3vw] text-[#faf8f8]"
-                @click.native="handleArrowUpClick" />
+        <span class="flex w-[5vw] h-[5vw] rounded-[50%] bg-[#a18f64] items-center justify-around absolute z-[999] zhuan"
+            :class="[`${condition ? 'right-[15px] top-[75px]' : 'right-[15px] top-[75px]'}`,{ rotated: isRotated }]" style="transition: transform 1s;">
+            <Icon icon="bytesize:chevron-bottom" class="text-[3vw] text-[#faf8f8]" 
+                @click.native="handleArrowUpClick " />
         </span>
         <!-- 头部 -->
         <div class="flex pl-[4vw] pr-[4vw] py-4 justify-between items-center"
@@ -36,7 +36,7 @@
                                 class="w-[24vw] h-[24vw] rounded-[3vw] z-[30] relative mt-[1vw]"
                                 style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5)" />
                             <div class="absolute top-[2vw] right-[4vw] font-[600] text-[#fff] flex items-center z-[35]">
-                                <span class="text-[#ffffff] whitespace-nowrap text-right text-[2.3vw]">
+                                <span class="text-[#ffffff] whitespace-nowrap text-right text-[2.3vw] ">
                                     <icon icon="solar:play-bold"
                                         class="float-left text-[2.3vw] text-[#ffffff] mt-[0.8vw] pr-[1vw]" />
                                     {{ dataTruncation(musicData.playlist?.playCount) }}
@@ -80,7 +80,7 @@
                     </div>
 
                 </div>
-                <div v-else key="div2">
+                <div v-else key="div2" class="mt-[4vw]">
                     <p class="flex  pl-[4vw] pr-[4vw]" style="justify-content: space-between;">
                         <span class="text-[2vw] text-[#d8c7b1]">喜欢这个歌单的用户也听了</span>
                     </p>
@@ -152,7 +152,7 @@
             </div>
 
             <div class="pb-[12vw] overflow-hidden">
-                <li class="h-[11vw] flex mt-[5vw]" v-for="(item, index) in musicmMean.songs " :key="item.id" :class="index == 0 ? 'mt-0' : ''" @click="playNum(index)">
+                <li class="h-[11vw] flex mt-[5vw]" v-for="(item, index) in musicmMean.songs " :key="item.id" :class="index == 0 ? 'mt-0' : ''" @click="playNum(index),MusicPlayback() ">
                     <div class="text-[#a5a5a5] h-[100%] w-[5vw] flex" style="align-items: center;">
                         {{ index + 1 }}
                     </div>
@@ -220,9 +220,15 @@ export default {
             title: '歌单',
             musicSlider: [],
             condition: true,
+            isRotated: false,
         }
     },
     methods: {
+    //跳转到页面
+    MusicPlayback() {
+            this.$router.push('/MusicPlayback');
+           
+        },
         // 截取时间
         dataTruncation(playVolume) {
             if (playVolume > 100000000) {
@@ -241,10 +247,13 @@ export default {
         //播放点击的
         playNum(index){
             this.activeIndex = index;
+            // window.$player._current = index;//获取id
+            localStorage.setItem("_current",index);//本地存一下
             window.$player._replaceCurrentTrack(this.musicmMean.songs[index].id,)
         },
         handleArrowUpClick() {
             this.condition = !this.condition
+            this.isRotated = !this.isRotated;
         },
         //获取歌单ID
         local() {
@@ -282,6 +291,8 @@ export default {
             )
             .then((res) => {
                 this.musicmMean = res.data;
+                // window.musicmMean = this.musicmMean
+                localStorage.setItem("musicmMean",JSON.stringify(res.data));//本地存一下
             })
             .catch((err) => {
                 console.log(err);
@@ -318,4 +329,9 @@ li {
 .fade-leave-to {
     opacity: 0;
 }
+.rotated {
+  transform: rotate(180deg);
+ 
+}
+
 </style>

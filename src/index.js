@@ -10,6 +10,8 @@ import  Dialog  from './commponent/Dialog';
 import { ActionSheet, NoticeBar, Popup, Button, Area,Swipe,SwipeItem,Circle } from 'vant';
 import 'vant/lib/index.css';
 import formateTime from '@/utils/formateTime';
+import player from './commponent/Player/player.js';
+Vue.use(player)
 Vue.use(formateTime);
 Vue.use(ActionSheet);
 Vue.use(NoticeBar);

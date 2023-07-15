@@ -6,7 +6,7 @@
               v-for="item in king"
               :key="item.king"
             >
-              <p style="margin-top: 3vw; padding: 0 3vw" class=" text-[5vw] font-bold text-[#4a4c51] dark:text-[#dededf]">
+              <p style="margin-top: 3vw; padding: 0 3vw" class=" text-[5vw] font-bold text-[#4a4c51] dark:text-[#dededf]" @click="home(item.uiElement.mainTitle.title)">
                 {{item.uiElement.mainTitle.title}}
                 <icon
                   icon="ant-design:right-outlined"
@@ -128,8 +128,17 @@
 <script>
 export default {
     name:"ranking",
-    props:["king"]
+    props:["king"],
+    
+methods:{
+  home(key) {
+    if(key==="MV榜"){
+      this.$router.push('/MvLeaderboard');
+    }
+    },
 }
+}
+
 </script>
 <style scoped>
 .active {

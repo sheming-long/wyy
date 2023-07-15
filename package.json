@@ -30,11 +30,14 @@
     "html-withimg-loader": "^0.1.16",
     "jquery": "^3.7.0",
     "lodash": "^4.17.21",
+    "lyric-parser": "^1.0.1",
+    "plyr": "^3.7.8",
     "storejs": "^2.0.5",
     "styled-components-vue": "^2.0.0",
     "swiper": "^10.0.3",
     "vant": "^2.12.54",
     "vue-router": "^3.1.4",
+    "vue-slider-component": "^3.2.24",
     "vuex": "^3.6.2"
   },
   "config": {

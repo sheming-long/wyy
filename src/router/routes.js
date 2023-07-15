@@ -10,6 +10,8 @@ import fangdou from "../views/homeview/fangdou.vue"
 import xuanzeqijsx from "../views/homeview/xuanzeqi.jsx"
 import BianJizliao from "../views/homeview/BianJizliao.vue"
 import Searchpage from "../views/homeview/Searchpage.vue"
+import MusicPlayback from "../commponent/MusicPlayback/MusicPlayback.vue"
+import MvLeaderboard from "../views/homeview/MvLeaderboard.vue"
 export default [
   // 路径重定向
   {
@@ -65,5 +67,19 @@ export default [
     path : '/Searchpage',//搜索
     component: Searchpage
   },
+  {
+    path : '/MusicPlayback',//音乐界面
+    component: MusicPlayback
+  },
+  {
+    path : '/MvLeaderboard',//
+    component: MvLeaderboard
+  },
+
+    // 视频播放器
+    {
+      path: '/videoPlayerView/:id',
+      component: () => import(/* webpackChunkName:'rest' */'../commponent/videoPlayerView/videoPlayerView.vue')
+    },
 ];
 

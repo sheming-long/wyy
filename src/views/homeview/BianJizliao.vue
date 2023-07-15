@@ -32,9 +32,9 @@
         v-model="nickNameBoolean" 
         position="bottom" 
         :style="{ height: '100%' }"
-
+        round
         >
-      <div class="flex text-[4.4vw] items-center pl-[1vw] pt-[4.2vw] mb-[3.8vw] w-[100%] pr-[1vw]" style="justify-content: space-between; align-items: center;">
+      <div class="flex text-[4.4vw] items-center pl-[1vw] pt-[4.2vw] mb-[3.8vw] w-[100%] pr-[1vw] relative" style="justify-content: space-between; align-items: center;">
             <div class="flex" style="justify-content: space-between; align-items: center;">
               <Icon
                 icon="ri:arrow-left-line"
@@ -44,7 +44,7 @@
               />
                <p class="font-[600]">修改昵称</p>
             </div>
-            <span class="font-[600]" @click="NMconfirmation()">保存</span>
+            <span class="font-[600] mr-[2vw]" @click="NMconfirmation()">保存</span>
       </div>
             <input
                   type="text"
@@ -56,6 +56,9 @@
                   style="text-indent: ;font-size:4vw; border-bottom: 1px solid gray;"
                   
                 />
+                <span class="absolute top-[19vw] left-[93vw]" @click="Delete()">
+                  <Icon icon="ic:twotone-close" class="text-[5.2vw] text-[#b3b3b3] " />
+                </span>
             <div
               class="px-[4vw] flex items-center text-[#eb4d44] text-[2.6vw]"
              :style="{ display: !promptText ? 'none' : 'flex' }"
@@ -84,6 +87,7 @@
             v-model="genderBoolean"
             position="bottom"
             style="height: 50vh;"
+            round
           >
             <van-picker
               show-toolbar
@@ -290,8 +294,11 @@ export default {
   },
 
   methods: {
-
-
+    // 删除点击
+    Delete(){
+      this.userName = ""
+      this.userNameDetection()
+    },
 
     // 昵称弹出
     async nickNamePopupt() {
@@ -468,5 +475,7 @@ export default {
 .van-picker__confirm {
   color: red !important;
 }
-
+.van-popup--bottom.van-popup--round{
+  border-radius: 0 !important;
+}
 </style>
