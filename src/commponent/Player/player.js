@@ -1,6 +1,6 @@
 import {Howl, Howler} from 'howler';
 import {getMP3, getTrackDetail, lyricText} from '@/request';
-import Player from './player.vue';
+import Player from './Player.vue';
 import Lyric from "lyric-parser";
 
 let lyricPlayer = null;
