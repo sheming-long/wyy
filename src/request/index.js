@@ -156,3 +156,13 @@ export const featMvDetailInfo = (mvid) => http.get('/mv/detail/info', { params: 
 
 // 歌词
 export const lyricText = (id) => http.get('/lyric', { params: { id } });
+
+/**
+* @description 评论
+*/
+export const featMvComment = (id) => http.get('/comment/mv', { params: { id, limit: 25 } });
+
+/**
+* @description 楼层评论
+*/
+export const featMvCommentFloor = (parentCommentId, id) => http.get('/comment/floor', { params: { parentCommentId, id, limit: 50, type: 1 }, });

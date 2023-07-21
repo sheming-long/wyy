@@ -37,10 +37,10 @@
     <div
         class="w-[100vw] h-[130vw] flex items-center flex-wrap px-[6vw] justify-center overflow-hidden relative internalShadow"
         v-if="lyricsSwitching" @click="lyricsSwitching = !lyricsSwitching">
-        <div class="absolute top-0 transition-all duration-1000" :style="{ top: -$player.lineHieght + 'vw' }">
-          <div v-for="(line, index) in $player.lyricLines" :key="index"
+        <div class="absolute top-0 transition-all duration-1000" :style="{ top: -lineHieght + 'vw' }">
+          <div v-for="(line, index) in lyricLines" :key="index"
             class="text-[hsla(0,0%,88.2%,.8)] line-clamp-2 w-[100%] h-[12vw] px-[4vw] flex justify-center text-center"
-            :style="{ color: index === $player.lineIndex ? '#fff' : 'hsla(0,0%,88.2%,.7)' }">{{ line.txt }}</div>
+            :style="{ color: index === lineIndex ? '#fff' : 'hsla(0,0%,88.2%,.7)' }">{{ line.txt }}</div>
         </div>
 
       </div>
@@ -83,7 +83,7 @@
             </div>
         </div>
 
-    <div class="flex pl-[10vw] pr-[10vw] justify-between items-center">
+    <div class="flex pl-[10vw] pr-[10vw] justify-between items-center " style=" padding-bottom: 4.5vw">
       <!-- 播放模式 -->
       <Icon class="text-[5vw]" icon="ps:random" />
       <!-- 上一首 -->
@@ -139,9 +139,11 @@ export default {
 
   data() {
     return {
-
+      lineHieght:$player.lineHieght,
+      lyricLines:$player.lyricLines,
+      lineIndex:$player.lineIndex,
       // 切换图标
-      lyricsSwitching : true,
+      lyricsSwitching : false,
       index: 0,
       // 歌单列表
       musicmMean: 0,
@@ -213,15 +215,13 @@ export default {
         );
         this.currentMusic = this.main?.songs[this.index]
         this.play =false
-        this.stopTimer()
+     
         window.$player._replaceCurrentTrack(this.musicmMean[this.index].id)
+        // clearInterval(this.timerId );
       }
       console.log(this.index);
     },
-    watch: {
-     
-},
-
+   
     // 下一首
     nextMusic() {
       if (this.index < this.musicmMean.length) {
@@ -233,14 +233,13 @@ export default {
         );
         this.currentMusic = this.main?.songs[this.index]
         this.play =false
-        this.stopTimer()
         window.$player._replaceCurrentTrack(this.musicmMean[this.index].id)
+        // clearInterval(this.timerId );
        
       }
       console.log(this.index);
     },
-    stopTimer() {
-},
+   
     // 播放和暂停
     playFn() {
       this.play = !this.play;
@@ -252,7 +251,10 @@ export default {
             this.timerId = setInterval(() => {
                 this.duration =$player._duration
                 this.progress =$player.progress
-                console.log(this.duration,this.progress ,this.play ,$player.progress );
+                this.lyricLines = $player.lyricLines
+                this.lineIndex=$player.lineIndex
+                this.lineHieght=$player.lineHieght
+                console.log(this.duration,this.progress ,this.play ,$player.progress,$player.lineHieght );
             }, 1000);
         },
         // 转化时间

@@ -23,19 +23,47 @@
             </div>
             <div class="flex h-[5vw] mb-[1.5vw] w-[92vw] px-[4vw]" style="line-height: 5vw;">
               <span class="w-[5.3vw] text-[#999999]  mr-[2.8vw] text-center flex text-[600]" style="font-size: 4.54vw;" :class="indexs<=2 ? 'text-[red]':''">
-                <!-- {index + 1} -->
                 {{ indexs + 1 }}
               </span>
               <span class="flex-1 line-clamp-1 text-[#000] text-[4vw] font-semibold h-[5vw]">
-              {{item.name}}
+                {{item.name}}
               </span>
             </div>
             <div class="flex h-[4vw] items-center  px-[4vw] line-clamp-1" style="line-height: 4vw;">
-              <span class=" text-[#999999] text-[4vw]  text-center "  :class="indexs>=9 ? 'ml-[2vw] mr-[5vw]' : 'mr-[7vw]'">
-                 -
-              </span>
+
+              <!-- {item.lastRank === index + 1 ? ( -->
+                            <div class="w-[5.3vw] text-[#999999] text-[2vw] mr-[2.8vw] flex items-center justify-center" v-if="item.lastRank === index + 1 ">
+                              -
+                            </div>
+                 
+                          <!-- {item.lastRank === -1 ? ( -->
+                            <div class="w-[5.3vw] text-[#999999] text-[2vw] mr-[2.8vw] flex items-center justify-center" v-if="item.lastRank === -1">
+                              <Icon
+                                icon="ic:outline-fiber-new"
+                                class="text-[#51986d] text-[5vw]"
+                              />
+                            </div>
+                        
+                          <!-- {item.lastRank > index + 1 ? ( -->
+                            <div class="w-[5.3vw] text-[#999999] text-[2vw] mr-[2.8vw] flex items-center justify-center" v-if="item.lastRank > index + 1">
+                              <Icon
+                                icon="maki:triangle"
+                                class="text-[#f05357]"
+                              />
+                            {{item.lastRank - (index + 1)}}
+                            </div>
+                        
+                          <!-- {item.lastRank < index + 1 && item.lastRank != -1 ? ( -->
+                            <div class="w-[5.3vw] text-[#999999] text-[2vw] mr-[2.8vw] flex items-center justify-center" v-if="item.lastRank < index + 1 && item.lastRank != -1">
+                              <Icon
+                                icon="maki:triangle"
+                                class="text-[#57b5e4]"
+                                style="transform: rotate(180deg);"
+                              />
+                             {{ index + 1 - item.lastRank}}
+                            </div>
+                         
               <span class=" text-[#999999] text-[2vw] mr-[2.8vw] text-center flex " style="min-width: 10vw;" v-for="itemss in item.mv.artists" :key="itemss.s" 
-              
               >
                  {{ itemss.name}}
               </span>

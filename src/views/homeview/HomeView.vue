@@ -1,5 +1,5 @@
 <template  >
-  <div :class="{ dark: switchCheckStatus }">
+   <div :class="{ dark: switchCheckStatus }">
     <div
       class="w-[100vw] pl-[2.5vw] pr-[2.5vw] overflow-hidden pb-[5vw] bg-[#f7f9fe] dark:bg-gray-900 dark:text-[#fff] dark:gundong"
       @click="updateOverflow"
@@ -478,7 +478,7 @@
                   <span
                     class="text-[black] dark:text-[white] text-[2.6vw] mr-[2.78vw]"
                   ></span>
-                  <v-switch v-model="switchCheckStatus" />
+                  <v-switch v-model="switchCheckStatus"/>
                 </div>
               </div>
               <div class="h-[12.69vw] flex justify-between items-center">
@@ -1179,12 +1179,13 @@ export default {
 
   data() {
     return {
+      switchCheckStatus: store.get('dark'),
       cookie: store.get('__m__cookie'),
       id: [],
       menus: [],
       visiblesss: 2,
       resourceData: '',
-      switchCheckStatus: false,
+   
       int: 0,
       show: false,
       actions: [{ name: '选项一' }, { name: '选项二' }, { name: '选项三' }],
@@ -1210,6 +1211,10 @@ export default {
   //   });
   // },
   methods: {
+    // stt(){
+    //   store.set('dark', this.switchCheckStatus)
+    //   console.log(this.switchCheckStatus);
+    // },
    
     exitLoginPopup() {
       Dialog({ message: '确定退出当前账号吗？' }, { visible: true })

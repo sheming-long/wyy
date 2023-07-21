@@ -461,7 +461,7 @@ export default {
         const res1 = await fetchUserAccount();
 
         // 获取用户详情
-        const res2 = await fetchUserDetail(res1.data.profile.userId);
+        const res2 = await fetchUserDetail(res1.data.profile?.userId);
         this.listenSongs = res2.data.listenSongs; // 累计听歌
         this.gender = res2.data.profile.gender; // 性别
         // 省市
