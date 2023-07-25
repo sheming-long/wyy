@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
 const path = require('path');
+const { VueLoaderPlugin } = require('vue-loader');
+const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: './src/index.js',
   devtool: 'source-map',
@@ -12,19 +14,35 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.template$/,
         use: {
           loader: path.resolve(__dirname, './loaders/template.js'),
         },
       },
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          // 'vue-style-loader',
+          'css-loader',
+          'postcss-loader',
+        ],
       },
       {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,
+          // 'vue-style-loader',
           'css-loader',
           'postcss-loader',
           'less-loader',
@@ -42,10 +60,11 @@ module.exports = {
       vue: 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, '../src'),
     },
+    extensions:[".js",".json",".jsx"]
   },
-  externals: {
-    vue: 'Vue',
-  },
+  // externals: {
+  //   vue: 'Vue',
+  // },
   devServer: {
     open: true,
     // 配置前端请求代理
@@ -63,6 +82,8 @@ module.exports = {
     },
   },
   plugins: [
+   
+
     new WebpackBar(),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:8].css',
@@ -70,9 +91,22 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       cdn: {
-        script: ['https://cdn.jsdelivr.net/npm/vue@2'],
+        script: [
+          // 'https://cdn.jsdelivr.net/npm/vue@2'
+        ],
         style: [],
       },
     }),
+    new VueLoaderPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/static", to: "./static" },
+        // { from: "other", to: "public" },
+      ],
+      
+    }),
+   
   ],
+ 
+  
 };
